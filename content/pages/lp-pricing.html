@@ -1,0 +1,215 @@
+<section class="page is-active" id="p-lp-pricing" aria-label="Pricing">
+<style>
+#p-lp-pricing{position:relative;overflow-x:clip;background:var(--page)}
+#p-lp-pricing [data-lp-nav]{position:absolute;inset:0 0 auto 0;z-index:20}
+#p-lp-pricing .w{max-width:1310px;margin:0 auto;padding-inline:var(--pad)}
+#p-lp-pricing .sec{padding-block:clamp(64px,8vw,120px)}
+#p-lp-pricing .head{max-width:760px;margin:0 auto clamp(36px,5vw,64px);text-align:center}
+#p-lp-pricing .head .eyebrow{margin-bottom:16px}
+/* hero */
+#p-lp-pricing .hero{position:relative;min-height:min(880px,100vh);display:grid;place-items:center;text-align:center;padding:150px 0 120px;overflow:hidden;
+  background:radial-gradient(70% 60% at 50% 38%,#EAE3D7 0%,#D7CEBE 58%,#C4B9A7 100%)}
+#p-lp-pricing .hero::after{content:"";position:absolute;inset:auto 0 0 0;height:160px;background:linear-gradient(180deg,transparent,var(--page));pointer-events:none;z-index:2}
+#p-lp-pricing .coins{position:absolute;inset:0;perspective:900px;pointer-events:none;--px:0;--py:0}
+#p-lp-pricing .coin{position:absolute;width:var(--s);aspect-ratio:1;left:var(--x);top:var(--y);filter:blur(var(--b));
+  transform:translate(calc(var(--px)*var(--z)*-34px),calc(var(--py)*var(--z)*-26px));transition:transform .9s var(--ease)}
+#p-lp-pricing .coin>div{width:100%;height:100%;animation:lp-pricing-drift var(--t) ease-in-out infinite;filter:drop-shadow(0 26px 30px rgba(80,64,40,.28))}
+@keyframes lp-pricing-drift{0%,100%{transform:translate3d(0,0,0) rotate(var(--r)) rotateY(0)}
+  50%{transform:translate3d(var(--dx),var(--dy),0) rotate(calc(var(--r) + 14deg)) rotateY(46deg)}}
+#p-lp-pricing .hero-in{position:relative;z-index:3;max-width:980px;padding-inline:var(--pad)}
+#p-lp-pricing .hero h1{color:#fff;text-shadow:0 2px 40px rgba(86,70,46,.4)}
+#p-lp-pricing .hero .lead{max-width:560px;margin:26px auto 34px;color:#3A3328}
+#p-lp-pricing .hero .eyebrow{color:#4C4437;margin-bottom:22px}
+#p-lp-pricing .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+#p-lp-pricing .btn-line{border-radius:999px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.28);background:rgba(255,255,255,.2);color:#000}
+#p-lp-pricing .btn-line:hover{background:#fff}
+#p-lp-pricing .btns .btn{height:46px;padding:0 26px;font-size:15px}
+/* plans */
+#p-lp-pricing .plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+#p-lp-pricing .plan{background:#fff;border-radius:var(--r-card);box-shadow:0 0 0 1px var(--line);display:flex;flex-direction:column;overflow:hidden;
+  transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+#p-lp-pricing .plan:hover,#p-lp-pricing .plan:focus-within{transform:translateY(-8px);box-shadow:0 0 0 1px #C9D6E8,0 40px 70px -40px rgba(40,70,110,.45)}
+#p-lp-pricing .plan.feat{box-shadow:0 0 0 1.5px #000}
+#p-lp-pricing .plan-vis{height:230px;display:grid;place-items:center;position:relative;overflow:hidden}
+#p-lp-pricing .plan-vis [data-card]{width:62%;transform:rotate(-7deg);transition:transform .8s var(--ease);filter:drop-shadow(0 22px 24px rgba(40,60,90,.28));animation:lp-pricing-bob 7s ease-in-out infinite}
+#p-lp-pricing .plan:hover .plan-vis [data-card]{transform:rotate(-2deg) scale(1.06)}
+@keyframes lp-pricing-bob{0%,100%{translate:0 0}50%{translate:0 -9px}}
+#p-lp-pricing .plan-vis.sage{background:linear-gradient(160deg,#EAEEE4,#D3D9CD)}#p-lp-pricing .plan-vis.ice{background:linear-gradient(160deg,#F3F6FC,#DCE6F6)}#p-lp-pricing .plan-vis.blue{background:linear-gradient(160deg,#BAD5F3,#8DB2DD)}
+#p-lp-pricing .plan-b{padding:28px 28px 30px;display:flex;flex-direction:column;flex:1}
+#p-lp-pricing .plan h3{font-size:28px;letter-spacing:-.025em}
+#p-lp-pricing .plan .tag-l{color:var(--ink-2);margin:8px 0 22px;min-height:44px}
+#p-lp-pricing .price{font-size:clamp(26px,2.3vw,34px);letter-spacing:-.03em;padding-block:16px;border-block:1px solid var(--line);margin-bottom:22px}
+#p-lp-pricing .price small{display:block;font-size:12px;color:var(--ink-3);letter-spacing:.02em;text-transform:uppercase;margin-bottom:4px}
+#p-lp-pricing .feats{display:grid;gap:12px;margin-bottom:28px;flex:1;align-content:start}
+#p-lp-pricing .feats li{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--ink)}
+#p-lp-pricing .feats .icon{width:18px;height:18px;margin-top:1px;color:var(--teal-deep);padding:3px;border-radius:50%;background:#DDF6F1}
+#p-lp-pricing .plan .btn{height:46px;width:100%}
+#p-lp-pricing .plan .btn-ink{background:#000;color:#fff;border-radius:999px}#p-lp-pricing .plan .btn-ink:hover{background:#1c1c1e;transform:translateY(-1px)}
+#p-lp-pricing .plan .btn-out{border-radius:999px;box-shadow:inset 0 0 0 1px #000}#p-lp-pricing .plan .btn-out:hover{background:#000;color:#fff}
+/* table */
+#p-lp-pricing .cmp-bg{background:#fff;border-radius:var(--r-card);box-shadow:0 0 0 1px var(--line);padding:clamp(8px,2vw,28px)}
+#p-lp-pricing table{width:100%;border-collapse:separate;border-spacing:0;font-size:15px}
+#p-lp-pricing th,#p-lp-pricing td{padding:16px 14px;text-align:center;border-bottom:1px solid var(--line-2)}
+#p-lp-pricing th:first-child,#p-lp-pricing td:first-child{text-align:left;width:46%}
+#p-lp-pricing thead th{position:sticky;top:0;z-index:4;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);font-weight:400;border-bottom:1px solid var(--line);font-size:17px}
+#p-lp-pricing tbody tr{transition:background .25s}
+#p-lp-pricing tbody tr:hover,#p-lp-pricing tbody tr:focus{background:#F3F7FC;outline:none}
+#p-lp-pricing tbody tr:focus-visible{outline:2px solid var(--accent-ink);outline-offset:-2px}
+#p-lp-pricing tbody th{font-weight:400;color:var(--ink)}
+#p-lp-pricing .colbtn{padding:8px 14px;border-radius:999px;transition:background .25s,color .25s}
+#p-lp-pricing .colbtn:hover{background:var(--subtle)}#p-lp-pricing .colbtn[aria-pressed="true"]{background:#000;color:#fff}
+#p-lp-pricing .cell.hl{background:#EEF4FB}
+#p-lp-pricing .yes{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#DDF6F1;color:var(--teal-deep)}
+#p-lp-pricing .yes .icon{width:14px;height:14px;stroke-width:2;stroke-dasharray:20;stroke-dashoffset:20}
+#p-lp-pricing .in .yes .icon,#p-lp-pricing .yes.in .icon{animation:lp-pricing-tick .7s var(--ease) forwards;animation-delay:var(--d,0ms)}
+@keyframes lp-pricing-tick{to{stroke-dashoffset:0}}
+#p-lp-pricing .no{color:var(--ink-4);font-size:18px}
+/* scenario */
+#p-lp-pricing .scn{background:#fff}
+#p-lp-pricing .scn h2 .sw{display:inline-block;margin-left:14px;vertical-align:.12em}
+#p-lp-pricing .sw{width:48px;height:28px;border-radius:999px;background:#C9D0D8;position:relative;transition:background .35s;flex:none;vertical-align:middle}
+#p-lp-pricing .sw::after{content:"";position:absolute;left:4px;top:4px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .45s var(--ease)}
+#p-lp-pricing .sw[aria-checked="true"]{background:var(--teal-deep)}#p-lp-pricing .sw[aria-checked="true"]::after{transform:translateX(20px)}
+#p-lp-pricing .card-s{max-width:520px;margin:0 auto;background:#FAFAFA;border-radius:28px;box-shadow:0 0 0 1px var(--line),0 40px 80px -50px rgba(40,70,110,.35);padding:26px 26px 22px}
+#p-lp-pricing .row-s{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px;border-bottom:1px solid var(--line)}
+#p-lp-pricing .row-s:first-child{padding-top:0}
+#p-lp-pricing .big{font-size:34px;letter-spacing:-.03em}#p-lp-pricing .big i{font-style:normal;color:var(--ink-4)}
+#p-lp-pricing .good{color:#0E6B58;background:#E6F7F2;border-radius:999px;padding:4px 12px;font-size:13px}
+#p-lp-pricing .proj{display:flex;gap:8px;align-items:center;color:var(--ink-3);font-size:13px}
+#p-lp-pricing .proj b{font-weight:400;background:var(--subtle);border-radius:999px;padding:2px 10px;color:var(--ink-2)}
+#p-lp-pricing .rw{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;font-size:20px}
+#p-lp-pricing .rw span{color:var(--ink-3)}
+#p-lp-pricing input[type=range]{width:100%;appearance:none;-webkit-appearance:none;height:28px;background:transparent;margin:12px 0 4px;cursor:pointer}
+#p-lp-pricing input[type=range]::-webkit-slider-runnable-track{height:2px;background:linear-gradient(90deg,#5AA9F5 var(--p,100%),#DDE3EA var(--p,100%))}
+#p-lp-pricing input[type=range]::-moz-range-track{height:2px;background:#DDE3EA}#p-lp-pricing input[type=range]::-moz-range-progress{height:2px;background:#5AA9F5}
+#p-lp-pricing input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#000;border:4px solid #fff;box-shadow:0 0 0 1px #000;margin-top:-10px;transition:transform .25s var(--ease)}
+#p-lp-pricing input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#000;border:3px solid #fff;box-shadow:0 0 0 1px #000}
+#p-lp-pricing input[type=range]:hover::-webkit-slider-thumb{transform:scale(1.15)}
+#p-lp-pricing input[type=range]:focus-visible{outline:2px solid var(--accent-ink);outline-offset:4px;border-radius:8px}
+#p-lp-pricing .chart{height:190px;margin-top:6px}
+/* accordion */
+#p-lp-pricing .why{background:#F8F8F6}
+#p-lp-pricing .why-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,80px);align-items:start}
+#p-lp-pricing .acc{border-top:1px solid #000}
+#p-lp-pricing .acc-i{border-bottom:1px solid var(--line)}
+#p-lp-pricing .acc-b{display:flex;justify-content:space-between;align-items:baseline;width:100%;padding:20px 0;text-align:left;font-size:19px;transition:padding .45s var(--ease)}
+#p-lp-pricing .acc-b span{font-size:14px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+#p-lp-pricing .acc-b:hover{padding-left:8px}
+#p-lp-pricing .acc-p{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
+#p-lp-pricing .acc-p>div{overflow:hidden}#p-lp-pricing .acc-p p{padding:0 40px 22px 0;color:var(--ink-2);max-width:420px}
+#p-lp-pricing .acc-i.open .acc-p{grid-template-rows:1fr}
+#p-lp-pricing .acc-i.open .acc-b{font-weight:500}
+#p-lp-pricing .proj-card{border-radius:var(--r-card);padding:clamp(18px,4vw,60px) clamp(14px,3vw,48px) 0;overflow:hidden;min-height:480px;display:flex;align-items:flex-end;position:relative}
+#p-lp-pricing .pc{background:#fff;border-radius:18px 18px 0 0;width:100%;padding:24px 24px 0;box-shadow:0 30px 60px -30px rgba(40,70,110,.4)}
+#p-lp-pricing .pc .k{font-size:12px;color:var(--ink-3)}
+#p-lp-pricing .pc .v{font-size:30px;letter-spacing:-.03em}
+#p-lp-pricing .pc-t{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+#p-lp-pricing .pc-t div div{font-size:12px;color:var(--ink-3)}#p-lp-pricing .pc-t b{font-weight:400;font-size:16px;color:var(--ink)}
+#p-lp-pricing .marks{display:flex;justify-content:space-between;margin-top:26px;font-size:13px;color:var(--ink)}
+#p-lp-pricing .marks div{border-left:1px solid #1f4f86;padding-left:6px}#p-lp-pricing .marks small{display:block;color:var(--ink-3);font-size:11px}
+/* contact + cta */
+#p-lp-pricing .contact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;background:#fff}
+#p-lp-pricing .contact>*{padding:30px clamp(20px,3vw,40px);display:flex;flex-direction:column;gap:8px;text-align:left;transition:background .3s}
+#p-lp-pricing .contact>*+*{border-left:1px solid var(--line)}
+#p-lp-pricing .contact button:hover,#p-lp-pricing .contact a:hover{background:var(--subtle)}
+#p-lp-pricing .contact .v{font-size:clamp(22px,2.2vw,32px);letter-spacing:-.025em}
+#p-lp-pricing .contact .h{font-size:13px;color:var(--ink-3);display:flex;align-items:center;gap:6px}
+#p-lp-pricing .cta{margin:0 clamp(12px,2vw,28px);border-radius:var(--r-card);overflow:hidden;position:relative;min-height:520px;display:grid;align-items:end;padding:clamp(28px,4vw,56px);
+  background:radial-gradient(60% 70% at 85% 20%,#E9F6F1 0%,transparent 60%),radial-gradient(50% 60% at 30% 100%,#5E9C88 0%,transparent 70%),linear-gradient(120deg,#A7ADB1 0%,#D5DCD8 45%,#EEF6F2 100%)}
+#p-lp-pricing .cta h2{color:#fff;max-width:760px;text-shadow:0 2px 30px rgba(40,70,60,.35)}
+#p-lp-pricing .cta-f{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-top:100px}
+#p-lp-pricing .cta-f p{color:#1E3A33;max-width:480px;font-size:15px}
+#p-lp-pricing .cta .btn{height:42px;padding:0 20px}
+@media(max-width:980px){#p-lp-pricing .plans{grid-template-columns:1fr;max-width:520px;margin-inline:auto}#p-lp-pricing .why-g{grid-template-columns:1fr}#p-lp-pricing .contact{grid-template-columns:1fr}#p-lp-pricing .contact>*+*{border-left:0;border-top:1px solid var(--line)}}
+@media(max-width:640px){#p-lp-pricing table{font-size:13px}#p-lp-pricing th,#p-lp-pricing td{padding:12px 6px}#p-lp-pricing thead th{font-size:13px}#p-lp-pricing .colbtn{padding:6px 4px}#p-lp-pricing th:first-child,#p-lp-pricing td:first-child{width:40%}#p-lp-pricing .hero{padding-top:120px}}
+</style>
+
+<div data-lp-nav="dark" data-current="lp-pricing"></div>
+
+<header class="hero" id="lp-pricing-top">
+  <div class="coins" aria-hidden="true"></div>
+  <div class="hero-in">
+    <p class="eyebrow" data-reveal="fade">Pricing</p>
+    <h1 class="display" data-reveal>Take full control of your financial operations</h1>
+    <p class="lead" data-reveal data-delay="150">Runo helps you manage payments, monitor cash flow, and control financial operations in real time.</p>
+    <div class="btns" data-reveal data-delay="260"><a class="btn btn-pill" href="/lp-cards">Get started</a><button type="button" class="btn btn-line" data-go="contact">Talk to sales</button></div>
+  </div>
+</header>
+
+<section class="sec" aria-labelledby="lp-pricing-plans-h"><div class="w">
+  <div class="head"><p class="eyebrow blue" data-reveal="fade">Everything in one place</p>
+    <h2 class="h1" id="lp-pricing-plans-h" data-reveal>Manage your money with tools tailored to your needs.</h2></div>
+  <div class="plans">
+    <article class="plan" data-plan="1" data-reveal>
+      <div class="plan-vis sage"><div data-card="sage"></div></div>
+      <div class="plan-b"><h3>Runo Private</h3><p class="tag-l">For personal finances, spending, and global access</p>
+        <p class="price"><small>Price</small>Talk to sales</p>
+        <ul class="feats"><li>Full visibility over your cash flow</li><li>Control every payment before it moves</li><li>Real-time visibility over your funds</li><li>Instant transfers and global access</li></ul>
+        <a class="btn btn-ink" href="/lp-cards">Get started</a></div>
+    </article>
+    <article class="plan feat" data-plan="2" data-reveal data-delay="120">
+      <div class="plan-vis ice"><div data-card="ice"></div></div>
+      <div class="plan-b"><h3>Runo Business</h3><p class="tag-l">For founders, startups, and international payments</p>
+        <p class="price"><small>Price</small>Talk to sales</p>
+        <ul class="feats"><li>Instant transfers and global access</li><li>Issue cards and track team spend</li><li>Built-in AI Copilot</li><li>Multi-Account Sync</li><li>Runway Forecasting</li><li>Smart Payments</li></ul>
+        <a class="btn btn-ink" href="/lp-cards">Get started</a></div>
+    </article>
+    <article class="plan" data-plan="3" data-reveal data-delay="240">
+      <div class="plan-vis blue"><div data-card="blue"></div></div>
+      <div class="plan-b"><h3>Enterprise</h3><p class="tag-l">Built for teams that manage money at scale.</p>
+        <p class="price"><small>Price</small>Talk to sales</p>
+        <ul class="feats"><li>Centralized financial control</li><li>Automate financial decisions</li><li>Automated Workflows</li><li>Built-in AI Copilot</li><li>Multi-Account Sync</li></ul>
+        <button type="button" class="btn btn-out" data-go="contact">Talk to sales</button></div>
+    </article>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0" aria-labelledby="lp-pricing-cmp-h"><div class="w">
+  <div class="head"><p class="eyebrow blue" data-reveal="fade">Plans</p><h2 class="h1" id="lp-pricing-cmp-h" data-reveal>Runo Private, Runo Business and Enterprise</h2>
+    <p class="small" style="margin-top:12px" data-reveal data-delay="100">Select a plan name to pin its column.</p></div>
+  <div class="cmp-bg" data-reveal><table id="lp-pricing-cmp"><caption class="sr-only">Which capabilities each Runo plan includes</caption>
+    <thead><tr><th scope="col">Capability</th></tr></thead><tbody></tbody></table></div>
+</div></section>
+
+<section class="sec scn" aria-labelledby="lp-pricing-scn-h"><div class="w">
+  <div class="head" style="max-width:900px"><h2 class="h1" id="lp-pricing-scn-h" data-reveal>Model your next move
+    <button type="button" class="sw" role="switch" aria-checked="true" aria-label="Apply scenario"></button><br>before it happens.</h2></div>
+  <div class="card-s" data-reveal="scale">
+    <div class="row-s"><strong class="medium">Scenario</strong><span class="good" id="lp-pricing-delta" aria-live="polite">+0.8 months runway</span></div>
+    <div class="row-s"><label for="lp-pricing-amt" class="body" style="font-size:18px;color:var(--ink-3)">Allocated amount</label><span class="big num" id="lp-pricing-amtv">$10,000<i>.00</i></span></div>
+    <input id="lp-pricing-amt" type="range" min="0" max="10000" step="100" value="10000" aria-valuetext="$10,000.00">
+    <div class="row-s" style="border:0;padding-bottom:0"><strong class="medium">Projected outcome</strong><span class="proj"><b>Projected</b></span></div>
+    <div class="rw" style="margin-top:6px;font-size:13px"><span>Now →</span><span>+12 months</span></div>
+    <div class="rw"><span>Runway: <b class="medium" style="font-weight:400" id="lp-pricing-r0">4.6</b> →</span><strong class="medium" style="font-weight:400" id="lp-pricing-r1" aria-live="polite">5.4 months</strong></div>
+    <div class="chart" id="lp-pricing-chart" role="img" aria-label="Projected runway curve, now to plus 12 months"></div>
+  </div>
+</div></section>
+
+<section class="sec why" aria-labelledby="lp-pricing-why-h"><div class="w why-g">
+  <div><h2 class="h1" id="lp-pricing-why-h" style="margin-bottom:44px" data-reveal>Why modern teams run on Runo</h2><div class="acc" id="lp-pricing-acc" data-reveal data-delay="120"></div></div>
+  <div class="proj-card sky" data-reveal="right"><div class="pc">
+    <div class="pc-t"><div><div class="k">Runway Projection</div><div class="v num"><span data-count="4.6" data-decimals="1">4.6</span> months</div></div>
+      <div style="display:flex;gap:28px"><div>Current burn<br><b>$18,900</b></div><div>Committed<br><b>$6,240</b></div></div></div>
+    <p class="small" style="margin-top:12px;max-width:420px">Runway projection reflects how many months your business can operate with the current cash balance.</p>
+    <div class="marks"><div>Core team<small>&nbsp;</small>$10,420</div><div>Vendors<small>&nbsp;</small>$5,380</div><div>Tools &amp; infra<small>&nbsp;</small>$3,100</div></div>
+    <div id="lp-pricing-bars" style="margin-top:6px;height:80px"></div></div></div>
+</div></section>
+
+<section class="sec" aria-labelledby="lp-pricing-ct-h"><div class="w">
+  <div class="head" style="margin-bottom:32px"><h2 class="h1" id="lp-pricing-ct-h" data-reveal>Talk to sales</h2></div>
+  <div class="contact" id="lp-pricing-contact" data-reveal>
+    <div><span class="h">Contact:</span></div>
+    <button type="button" data-copy="1800 123 4567"><span class="h">Phone · select to copy</span><span class="v num">1800 123 4567</span></button>
+    <button type="button" data-copy="hello@runo.finance"><span class="h">Email · select to copy</span><span class="v">hello@runo.finance</span></button>
+  </div>
+</div></section>
+
+<section class="cta" data-reveal="scale" aria-labelledby="lp-pricing-cta-h">
+  <div class="mist" style="position:absolute;inset:0;opacity:.18;mix-blend-mode:soft-light" aria-hidden="true"></div>
+  <h2 class="h1" id="lp-pricing-cta-h" style="position:relative">Built for teams that manage money at scale.</h2>
+  <div class="cta-f" style="position:relative"><p>Runo gives you full visibility and control over your cash flow, payments, and operations — from day one. No complexity, no delays.</p>
+    <div class="btns"><a class="btn btn-pill" href="/lp-cards">Get started</a><button type="button" class="btn btn-pill" data-go="contact">Talk to sales</button></div></div>
+</section>
+<div style="height:44px"></div>
+<div data-lp-footer></div>
+</section>

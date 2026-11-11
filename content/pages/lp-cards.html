@@ -1,0 +1,225 @@
+<section class="page is-active" id="p-lp-cards" aria-label="Cards and accounts">
+<style>
+#p-lp-cards{position:relative;overflow-x:clip;background:var(--page)}
+#p-lp-cards [data-lp-nav]{position:absolute;inset:0 0 auto 0;z-index:20}
+#p-lp-cards .w{max-width:1310px;margin:0 auto;padding-inline:var(--pad)}
+#p-lp-cards .sec{padding-block:clamp(60px,8vw,120px)}
+#p-lp-cards .btns{display:flex;gap:10px;flex-wrap:wrap}
+#p-lp-cards .btns .btn{height:44px;padding:0 24px;font-size:15px}
+/* hero */
+#p-lp-cards .hero{position:relative;text-align:center;padding:clamp(130px,12vw,170px) 0 40px;overflow:hidden;background:linear-gradient(180deg,#A9C7EE 0%,#C2D8F3 34%,#E4EDF9 62%,#FAFAFA 100%)}
+#p-lp-cards .hero h1{color:#fff;max-width:900px;margin:0 auto;padding-inline:var(--pad);text-shadow:0 2px 30px rgba(60,100,160,.25)}
+#p-lp-cards .hero .lead{color:#27425F;max-width:520px;margin:20px auto 0;padding-inline:var(--pad);font-size:clamp(15px,1.2vw,18px)}
+#p-lp-cards .rings{position:absolute;inset:0;pointer-events:none;opacity:.7}
+#p-lp-cards .stage{--cw:clamp(250px,32vw,400px);position:relative;height:calc(var(--cw)*1.2);margin-top:20px;perspective:1500px}
+#p-lp-cards .fl{position:absolute;inset:0;animation:floaty 8s ease-in-out infinite}
+#p-lp-cards .deck{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
+#p-lp-cards .cd{position:absolute;left:50%;top:50%;width:var(--cw);aspect-ratio:8/5;margin:calc(var(--cw)*-.3125) 0 0 calc(var(--cw)/-2);transform-style:preserve-3d;cursor:pointer;
+  transform:translate3d(var(--tx,0%),var(--ty,0%),var(--tz,0px)) rotateZ(var(--rz,0deg)) scale(var(--sc,1));transition:transform 1.1s var(--ease),opacity .8s;outline:none}
+#p-lp-cards .stage:not(.fan) .cd{--tx:0% !important;--ty:0% !important;--tz:0px !important;--rz:0deg !important;--sc:.7 !important;opacity:0}
+#p-lp-cards .cd:focus-visible .flip{outline:2px solid var(--accent-ink);outline-offset:6px;border-radius:18px}
+#p-lp-cards .flip{position:absolute;inset:0;transform-style:preserve-3d;transition:transform 1.1s var(--ease)}
+#p-lp-cards .cd.flipped .flip{transform:rotateY(180deg)}
+#p-lp-cards .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+#p-lp-cards .face svg{width:100%;height:100%;filter:drop-shadow(0 30px 34px rgba(40,70,120,.32))}
+#p-lp-cards .face.back{transform:rotateY(180deg)}
+#p-lp-cards .cd:hover{--sc:1.03}
+#p-lp-cards .selr{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:10px;padding-inline:var(--pad)}
+#p-lp-cards .selr button{height:40px;padding:0 20px;border-radius:999px;background:#fff;font-size:14px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);transition:background .3s,color .3s,transform .3s var(--ease)}
+#p-lp-cards .selr button:hover{transform:translateY(-2px);box-shadow:0 8px 20px -10px rgba(40,70,110,.4)}
+#p-lp-cards .selr button[aria-checked="true"]{background:#000;color:#fff}
+#p-lp-cards .selr .dot{width:40px;padding:0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}#p-lp-cards .selr .dot[aria-checked="true"]{box-shadow:0 0 0 3px #fff,0 0 0 5px #000}
+#p-lp-cards .selr .fb{background:transparent;box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
+/* choose account */
+#p-lp-cards .acct{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:12px;align-items:stretch}
+#p-lp-cards .acct-l{border-radius:var(--r-card);padding:clamp(22px,3vw,44px);min-height:560px;display:flex;flex-direction:column;justify-content:flex-end;gap:14px;position:relative;overflow:hidden}
+#p-lp-cards .opt{display:grid;grid-template-columns:48px 1fr minmax(120px,38%);gap:16px;align-items:center;text-align:left;background:rgba(255,255,255,.92);border-radius:22px;padding:18px 20px;
+  box-shadow:0 0 0 1.5px transparent,0 20px 40px -26px rgba(20,40,70,.5);transition:transform .6s var(--ease),box-shadow .4s}
+#p-lp-cards .opt:hover{transform:translateY(-4px)}
+#p-lp-cards .opt[aria-checked="true"]{box-shadow:0 0 0 1.5px #000,0 26px 50px -26px rgba(20,40,70,.6);transform:translateX(10px)}
+#p-lp-cards .opt .ic{width:44px;height:44px;border-radius:50%;background:var(--subtle);display:grid;place-items:center}
+#p-lp-cards .opt h3{font-size:clamp(20px,1.8vw,26px)}
+#p-lp-cards .opt p{font-size:13px;color:var(--ink-2);margin-top:4px}
+#p-lp-cards .opt [data-card]{transform:rotate(-8deg);filter:drop-shadow(0 12px 14px rgba(30,50,80,.3))}
+#p-lp-cards .acct-r{background:#fff;border-radius:var(--r-card);padding:clamp(22px,3vw,44px);box-shadow:0 0 0 1px var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+#p-lp-cards .acct-r ul{display:grid;gap:12px;margin-top:22px;min-height:150px}
+#p-lp-cards .acct-r li{display:flex;gap:10px;align-items:flex-start;animation:lp-cards-up .6s var(--ease) both;animation-delay:var(--d)}
+#p-lp-cards .acct-r li .icon{padding:3px;width:20px;height:20px;border-radius:50%;background:#DDF6F1;color:var(--teal-deep);margin-top:1px}
+@keyframes lp-cards-up{from{opacity:0;transform:translateY(8px)}}
+/* onboarding */
+#p-lp-cards .onb{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(30px,6vw,110px);align-items:center}
+#p-lp-cards .phone-wrap{display:grid;place-items:center;background:radial-gradient(closest-side,#EAF1FA,transparent);padding:30px 0}
+#p-lp-cards .onb .phone{--w:clamp(250px,26vw,310px);animation:floaty 8s ease-in-out infinite}
+#p-lp-cards .ps{display:flex;flex-direction:column;height:100%;padding-bottom:1.6em}
+#p-lp-cards .cur{align-self:center;display:inline-flex;gap:2px;background:#F3F4F6;border-radius:999px;padding:3px}
+#p-lp-cards .cur button{display:inline-flex;align-items:center;gap:.4em;padding:.3em .9em;border-radius:999px;font-size:.92em;transition:background .3s}
+#p-lp-cards .cur button[aria-pressed="true"]{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+#p-lp-cards .cur svg{width:1.2em;height:1.2em}
+#p-lp-cards .fc{position:relative;display:grid;place-items:center;height:8.4em;margin-top:.3em}
+#p-lp-cards .fc .r{position:absolute;border-radius:50%;border:1px solid #EEF0F3;animation:spin 40s linear infinite}
+#p-lp-cards .fc .fl2{position:relative;width:3.8em;height:3.8em;transition:transform .6s var(--ease)}
+#p-lp-cards .fc .fl2 svg{width:100%;height:100%}
+#p-lp-cards .fc .coin{position:absolute;right:-1.8em;bottom:-.9em;width:2.8em;height:2.8em;border-radius:50%;background:#A9C5EC;color:#fff;display:grid;place-items:center;font-size:1.3em;box-shadow:0 4px 10px rgba(80,120,180,.3)}
+#p-lp-cards .ttl{text-align:center;font-size:1.28em;line-height:1.25;margin:.1em 0 .6em;font-weight:400}
+#p-lp-cards .rw{display:flex;gap:.8em;align-items:center;padding:.42em .7em;margin:0 .6em;border-radius:12px;transition:background .5s,box-shadow .5s}
+#p-lp-cards .rw b{display:block;font-weight:500;font-size:.94em;line-height:1.2}#p-lp-cards .rw small{display:block;font-size:.78em;line-height:1.25;color:#6B7280}
+#p-lp-cards .rw .t{width:2.2em;height:2.2em;border-radius:.6em;display:grid;place-items:center;flex:none}
+#p-lp-cards .rw .t .icon{width:1.3em;height:1.3em}
+#p-lp-cards .rw.on{background:#F3F7FD;box-shadow:inset 0 0 0 1px #C9DBF2}
+#p-lp-cards .foot{text-align:center;font-size:.86em;color:#6B7280;margin:auto 0 .6em}
+#p-lp-cards .create{margin:0 .8em;height:3em;border-radius:999px;background:#000;color:#fff;font-size:1em}
+#p-lp-cards .steps{margin-top:34px;border-top:1px solid #000}
+#p-lp-cards .st{display:grid;grid-template-columns:44px 1fr;width:100%;text-align:left;padding:18px 0;border-bottom:1px solid var(--line);align-items:start;transition:padding .45s var(--ease)}
+#p-lp-cards .st span{font-size:14px;color:var(--ink-3);padding-top:4px;font-variant-numeric:tabular-nums}
+#p-lp-cards .st b{font-weight:400;font-size:clamp(18px,1.6vw,22px);color:var(--ink-3);transition:color .4s}
+#p-lp-cards .st p{font-size:14px;color:var(--ink-2);max-height:0;opacity:0;overflow:hidden;transition:max-height .6s var(--ease),opacity .5s}
+#p-lp-cards .st[aria-pressed="true"] b{color:#000}#p-lp-cards .st[aria-pressed="true"] p{max-height:60px;opacity:1;margin-top:6px}
+#p-lp-cards .st:hover{padding-left:6px}
+/* team cards */
+#p-lp-cards .team{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,90px);align-items:center}
+#p-lp-cards .tl{background:#fff;border-radius:var(--r-card);box-shadow:0 0 0 1px var(--line),0 40px 80px -56px rgba(40,70,110,.45);padding:10px 22px}
+#p-lp-cards .tr{display:grid;grid-template-columns:96px 1fr auto;gap:18px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line-2)}
+#p-lp-cards .tr:last-child{border:0}
+#p-lp-cards .th{position:relative;border-radius:8px;overflow:hidden;transition:filter .6s,transform .6s var(--ease)}
+#p-lp-cards .th::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.55);backdrop-filter:blur(3px);opacity:0;transition:opacity .5s}
+#p-lp-cards .tr.frz .th{filter:grayscale(.8)}#p-lp-cards .tr.frz .th::after{opacity:1}
+#p-lp-cards .tr:hover .th{transform:translateY(-2px) rotate(-2deg)}
+#p-lp-cards .tr b{font-weight:500;font-size:17px;letter-spacing:-.01em}#p-lp-cards .tr small{display:block;color:var(--ink-3);font-size:13px}
+#p-lp-cards .tg{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-2)}
+#p-lp-cards .sw{width:44px;height:26px;border-radius:999px;background:#C9D0D8;position:relative;transition:background .35s;flex:none}
+#p-lp-cards .sw::after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .45s var(--ease)}
+#p-lp-cards .sw[aria-checked="true"]{background:#1F4F86}#p-lp-cards .sw[aria-checked="true"]::after{transform:translateX(18px)}
+#p-lp-cards .tsum{margin-top:30px;display:flex;gap:10px;align-items:center}
+/* donut */
+#p-lp-cards .dn{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:12px}
+#p-lp-cards .dn-c{background:#fff;border-radius:var(--r-card);box-shadow:0 0 0 1px var(--line);display:grid;place-items:center;padding:clamp(20px,3vw,48px);position:relative}
+#p-lp-cards .dn-c svg{width:min(100%,440px);height:auto;overflow:visible}
+#p-lp-cards .sg{fill:none;stroke-width:22;stroke-dasharray:var(--len) 503;stroke-dashoffset:var(--off);transition:stroke-width .4s var(--ease),opacity .4s;cursor:pointer;outline:none}
+#p-lp-cards .dn-c.in .sg{animation:lp-cards-seg 1.4s var(--ease) backwards;animation-delay:var(--dl)}
+@keyframes lp-cards-seg{from{stroke-dasharray:0 503}}
+#p-lp-cards .dn-c.hov .sg{opacity:.25}#p-lp-cards .dn-c.hov .sg.on{opacity:1;stroke-width:28}
+#p-lp-cards .sg:focus-visible{stroke-width:28}
+#p-lp-cards .dn-r{background:#F4F2EC;border-radius:var(--r-card);padding:clamp(22px,3vw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+#p-lp-cards .lg{display:grid;gap:4px}
+#p-lp-cards .lg button{display:grid;grid-template-columns:18px 1fr auto;gap:12px;align-items:center;text-align:left;padding:14px 10px;border-radius:12px;border-bottom:1px solid #DEDBD2;transition:background .3s,padding .4s var(--ease)}
+#p-lp-cards .lg button:hover,#p-lp-cards .lg button.on{background:#fff;padding-left:16px}
+#p-lp-cards .lg i{width:12px;height:12px;border-radius:50%}
+#p-lp-cards .lg .p{font-size:28px;letter-spacing:-.03em}
+/* material */
+#p-lp-cards .mat{border-radius:var(--r-card);position:relative;overflow:hidden;padding:clamp(40px,6vw,90px) var(--pad) clamp(34px,5vw,60px);text-align:center;color:#fff}
+#p-lp-cards .mat h2{color:#fff;text-shadow:0 2px 24px rgba(30,60,100,.35)}
+#p-lp-cards .mat .stg{perspective:1400px;max-width:760px;margin:clamp(24px,4vw,50px) auto 0}
+#p-lp-cards .mat .bigc{transition:transform .2s ease-out;transform-style:preserve-3d;aspect-ratio:8/5}
+#p-lp-cards .mat .bigc svg{width:100%;height:100%;filter:drop-shadow(0 50px 50px rgba(20,40,70,.45));border-radius:3%}
+#p-lp-cards .sws{display:inline-flex;gap:10px;margin-top:30px}
+#p-lp-cards .sws button{width:38px;height:38px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.55);transition:transform .35s var(--ease),box-shadow .3s}
+#p-lp-cards .sws button:hover{transform:scale(1.12)}#p-lp-cards .sws button[aria-pressed="true"]{box-shadow:0 0 0 3px #fff,0 0 0 5px #27425F}
+/* money flow */
+#p-lp-cards .mf{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:12px}
+#p-lp-cards .mf-t{background:#fff;border-radius:var(--r-card);box-shadow:0 0 0 1px var(--line);padding:clamp(24px,3.4vw,54px);display:flex;flex-direction:column;justify-content:space-between;gap:34px}
+#p-lp-cards .mf-t li{display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px solid var(--line);font-size:17px;transition:padding .4s var(--ease)}
+#p-lp-cards .mf-t li:hover{padding-left:8px}
+#p-lp-cards .mf-t li .icon{width:34px;height:34px;padding:9px;border-radius:50%;background:#EAF1FA;color:#27425F}
+#p-lp-cards .mf-v{border-radius:var(--r-card);min-height:540px;position:relative;overflow:hidden;display:grid;place-items:center}
+#p-lp-cards .mf-v svg{width:min(88%,620px);overflow:visible;transition:transform .3s ease-out}
+#p-lp-cards .pl{animation:floaty 7s ease-in-out infinite;transform-origin:50% 50%}
+#p-lp-cards .cn{transform-box:fill-box;transform-origin:50% 100%;cursor:pointer;transition:transform .7s var(--ease)}
+#p-lp-cards .cn:hover,#p-lp-cards .cn.sp{transform:rotateY(360deg) translateY(-8px)}
+/* cta */
+#p-lp-cards .cta{margin:0 clamp(12px,2vw,28px);border-radius:var(--r-card);overflow:hidden;position:relative;min-height:560px;padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;justify-content:space-between;
+  background:radial-gradient(55% 60% at 85% 20%,#EAF6F1 0%,transparent 60%),radial-gradient(50% 55% at 70% 95%,#5E9C88 0%,transparent 70%),linear-gradient(120deg,#C6CBCD 0%,#DDE6E2 45%,#F1F8F4 100%)}
+#p-lp-cards .cta h2{color:#fff;max-width:880px;text-shadow:0 2px 30px rgba(40,70,60,.35);position:relative}
+#p-lp-cards .cta .slab{position:absolute;left:-6%;bottom:-18%;width:min(56%,620px);transform:rotate(-24deg);opacity:.9}
+#p-lp-cards .cta-f{position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+#p-lp-cards .cta-f p{color:#1E3A33;max-width:460px;font-size:15px;margin-left:auto}
+@media(max-width:980px){#p-lp-cards .acct,#p-lp-cards .onb,#p-lp-cards .team,#p-lp-cards .dn,#p-lp-cards .mf{grid-template-columns:1fr}#p-lp-cards .opt{grid-template-columns:44px 1fr 90px}#p-lp-cards .cta .slab{opacity:.4}#p-lp-cards .cta-f p{margin-left:0}#p-lp-cards .tr{grid-template-columns:76px 1fr}#p-lp-cards .tr .tg{grid-column:1/-1}}
+</style>
+
+<div data-lp-nav="dark" data-current="lp-cards"></div>
+
+<header class="hero" id="lp-cards-top">
+  <svg class="rings" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMin slice" aria-hidden="true" id="lp-cards-rings"></svg>
+  <h1 class="display" style="font-size:clamp(34px,5vw,76px)" data-reveal>Designed for teams that manage money at scale</h1>
+  <p class="lead" data-reveal data-delay="150">Runo helps you manage payments, monitor cash flow, and control financial operations in real time.</p>
+  <div class="stage" id="lp-cards-stage" role="group" aria-label="Runo cards. Select a card to bring it forward, select it again to flip it.">
+    <div class="fl"><div class="deck" id="lp-cards-deck">
+      <div class="cd" role="button" tabindex="0"><div class="flip"><div class="face front" data-card="sage"></div><div class="face back"></div></div></div>
+      <div class="cd" role="button" tabindex="0"><div class="flip"><div class="face front" data-card="ice"></div><div class="face back"></div></div></div>
+      <div class="cd" role="button" tabindex="0"><div class="flip"><div class="face front" data-card="blue"></div><div class="face back"></div></div></div>
+    </div></div>
+  </div>
+  <div class="selr" role="radiogroup" aria-label="Bring a card forward" id="lp-cards-selr">
+    <button type="button" class="dot" role="radio" aria-checked="true" data-s="0" aria-label="Card 1" style="background:linear-gradient(135deg,#D5DAD0,#AEB7AB)"></button><button type="button" class="dot" role="radio" aria-checked="false" data-s="1" aria-label="Card 2" style="background:linear-gradient(135deg,#EEF3FB,#D3E0F5)"></button><button type="button" class="dot" role="radio" aria-checked="false" data-s="2" aria-label="Card 3" style="background:linear-gradient(135deg,#86ABD6,#5C88BB)"></button>
+    <button type="button" class="fb" id="lp-cards-flipb">Flip card</button>
+  </div>
+</header>
+
+<section class="sec" aria-labelledby="lp-cards-a-h"><div class="w">
+  <div class="acct">
+    <div class="acct-l mist" data-reveal="left">
+      <div role="radiogroup" aria-labelledby="lp-cards-a-h" id="lp-cards-opts" style="display:grid;gap:12px">
+        <button type="button" class="opt" role="radio" aria-checked="true" data-a="0"><span class="ic"></span><span><h3>Runo Private</h3><p>For personal finances, spending, and global access</p></span><span data-card="sage"></span></button>
+        <button type="button" class="opt" role="radio" aria-checked="false" data-a="1"><span class="ic"></span><span><h3>Runo Business</h3><p>For founders, startups, and international payments</p></span><span data-card="ice"></span></button>
+      </div></div>
+    <div class="acct-r" data-reveal="right"><div><p class="eyebrow blue">Getting started</p>
+      <h2 class="h1" id="lp-cards-a-h" style="margin-top:12px">Choose your Runo account</h2>
+      <p class="lead" style="margin-top:14px;color:var(--ink-2)">Manage your money with tools tailored to your needs. You can switch or add accounts anytime.</p>
+      <ul id="lp-cards-af" aria-live="polite"></ul></div>
+      <div class="btns"><a class="btn btn-dark" href="/lp-pricing" id="lp-cards-ac">Continue with Runo Private</a></div></div>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0" aria-labelledby="lp-cards-o-h"><div class="w onb">
+  <div class="phone-wrap" data-reveal="scale"><div class="phone"><div class="phone-island"></div><div class="phone-screen"><div class="phone-status"><span>9:41</span><span aria-hidden="true">●●● ▮</span></div>
+    <div class="ps">
+      <div class="cur" role="group" aria-label="Currency"><button type="button" data-k="USD" aria-pressed="true"><svg viewBox="0 0 40 40" aria-hidden="true"><g clip-path="url(#lp-cards-fc)" id="lp-cards-fus"></g></svg>USD</button><button type="button" data-k="EUR" aria-pressed="false"><svg viewBox="0 0 40 40" aria-hidden="true"><g clip-path="url(#lp-cards-fc)" id="lp-cards-feu"></g></svg>EUR</button></div>
+      <div class="fc" aria-hidden="true"><span class="r" style="inset:0 14%"></span><span class="r" style="inset:12% 26%;animation-direction:reverse"></span><span class="fl2"><svg viewBox="0 0 40 40"><g clip-path="url(#lp-cards-fc)" id="lp-cards-fbig"></g></svg><span class="coin" id="lp-cards-coin">$</span></span></div>
+      <h3 class="ttl">Create your<br>Runo Business Account</h3>
+      <div id="lp-cards-rows"></div>
+      <p class="foot">Built for founders and small teams</p>
+      <button type="button" class="create">Create account</button>
+    </div><div class="phone-home"></div></div></div></div>
+  <div><p class="eyebrow blue" data-reveal="fade">Getting started</p>
+    <h2 class="display" id="lp-cards-o-h" style="font-size:clamp(32px,4.2vw,64px);margin:14px 0 18px" data-reveal>Financial control starts with a single setup.</h2>
+    <p class="lead" style="max-width:520px" data-reveal data-delay="100">Create your account and define how payments, spending, and approvals work.</p>
+    <div class="steps" id="lp-cards-steps" data-reveal data-delay="150"></div></div>
+</div></section>
+
+<section class="sec" style="padding-top:0" aria-labelledby="lp-cards-t-h"><div class="w team">
+  <div><p class="eyebrow blue" data-reveal="fade">Cards</p>
+    <h2 class="h1" id="lp-cards-t-h" style="margin:12px 0 16px" data-reveal>Issue cards and track team spend</h2>
+    <p class="lead" style="color:var(--ink-2);max-width:420px" data-reveal data-delay="100">Create cards for your team and stay in control</p>
+    <div class="tsum" data-reveal data-delay="180"><span class="chip up" id="lp-cards-act" aria-live="polite">4 of 4 active</span><span class="small">Use the switches to freeze or unfreeze a card.</span></div></div>
+  <div class="tl" id="lp-cards-list" data-reveal="right"></div>
+</div></section>
+
+<section class="sec" style="padding-top:0" aria-labelledby="lp-cards-d-h"><div class="w dn">
+  <div class="dn-c" id="lp-cards-dn" data-reveal="scale"></div>
+  <div class="dn-r" data-reveal="right"><div><p class="eyebrow blue">Control</p><h2 class="h1" id="lp-cards-d-h" style="margin-top:12px">Spend controllability</h2></div>
+    <div class="lg" id="lp-cards-lg"></div></div>
+</div></section>
+
+<section class="sec" style="padding-top:0" aria-labelledby="lp-cards-m-h"><div class="w" style="max-width:1520px"><div class="mat mist" data-reveal="scale">
+  <p class="eyebrow" style="color:#1F3550">Cards</p>
+  <h2 class="h1" id="lp-cards-m-h" style="margin-top:12px">A new standard for financial control, meet Runo.</h2>
+  <div class="stg" id="lp-cards-mstg"><div class="bigc" id="lp-cards-big"></div></div>
+  <div class="sws" role="group" aria-label="Card finish"><button type="button" data-v="sage" aria-pressed="true" aria-label="Finish 1" style="background:linear-gradient(135deg,#D5DAD0,#AEB7AB)"></button><button type="button" data-v="ice" aria-pressed="false" aria-label="Finish 2" style="background:linear-gradient(135deg,#EEF3FB,#D3E0F5)"></button><button type="button" data-v="blue" aria-pressed="false" aria-label="Finish 3" style="background:linear-gradient(135deg,#86ABD6,#5C88BB)"></button></div>
+</div></div></section>
+
+<section class="sec" style="padding-top:0" aria-labelledby="lp-cards-f-h"><div class="w mf">
+  <div class="mf-t" data-reveal="left"><div><p class="eyebrow blue">Getting started</p><h2 class="h1" id="lp-cards-f-h" style="margin:12px 0 14px">Direct your money flow</h2>
+    <p class="lead" style="color:var(--ink-2)">Organise, move, and track your funds in one place</p></div>
+    <ul><li>Real-time visibility over your funds</li><li>Instant transfers and global access</li><li>Built for speed and control</li></ul>
+    <div class="btns"><a class="btn btn-dark" href="/lp-pricing">Get started</a></div></div>
+  <div class="mf-v mist" id="lp-cards-mfv" data-reveal="right"><svg viewBox="0 0 420 320" role="img" aria-label="Paper plane carrying a gold coin and a blue dollar coin" id="lp-cards-plane"></svg></div>
+</div></section>
+
+<section class="cta" data-reveal="scale" aria-labelledby="lp-cards-cta-h">
+  <div class="slab" data-card="sage" aria-hidden="true"></div>
+  <h2 class="h1" id="lp-cards-cta-h">Take control of your financial operations with Runo</h2>
+  <div class="cta-f"><div class="btns"><a class="btn btn-pill" href="/lp-pricing">Get started</a><a class="btn btn-pill" href="/lp-pricing">Talk to sales</a></div>
+    <p>Runo gives you full visibility and control over your cash flow, payments, and operations — from day one. No complexity, no delays.</p></div>
+</section>
+<div style="height:44px"></div>
+<div data-lp-footer></div>
+</section>

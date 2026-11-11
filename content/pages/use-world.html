@@ -1,0 +1,295 @@
+<section class="page is-active" id="p-use-world" aria-label="Brand in use — Cards, digital & spaces">
+<style>
+#p-use-world{--uw-ease:var(--ease)}
+/* header, grid, tile, stage and caption follow the shared "Brand in use" pattern (same as use-print / use-merch) */
+#p-use-world .uw-head{padding-top:clamp(40px,6vw,88px);padding-bottom:clamp(28px,4vw,56px)}
+#p-use-world .uw-head .eyebrow{margin-bottom:14px}
+#p-use-world .uw-head .uw-sub{font-size:clamp(26px,3.2vw,48px);line-height:1.08;letter-spacing:-.03em;margin-top:8px}
+#p-use-world .uw-sib{display:flex;flex-wrap:wrap;gap:6px 30px;margin-top:30px;font-size:15px}
+#p-use-world .uw-sib a{position:relative;padding:8px 0;color:var(--ink-2);transition:color .25s}
+#p-use-world .uw-sib a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+#p-use-world .uw-sib a:hover,#p-use-world .uw-sib a[aria-current]{color:var(--ink)}
+#p-use-world .uw-sib a:hover::after,#p-use-world .uw-sib a[aria-current]::after{transform:scaleX(1)}
+#p-use-world .uw-sib a:active{opacity:.7}
+
+#p-use-world .uw-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(16px,2vw,28px)}
+@media(min-width:1000px){#p-use-world .uw-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#p-use-world .uw-wide{grid-column:1/-1}}
+#p-use-world .uw-tile{display:flex;flex-direction:column;min-width:0;box-shadow:0 0 0 1px var(--line);cursor:default;transition:box-shadow .3s,opacity .9s var(--ease),transform .9s var(--ease)}
+#p-use-world .uw-tile:focus-visible{outline:none;box-shadow:0 0 0 2px var(--accent-ink)}
+#p-use-world .uw-stage{position:relative;flex:1;min-height:420px;display:grid;place-items:center;padding:clamp(18px,3vw,44px);overflow:hidden;isolation:isolate}
+#p-use-world .uw-wide .uw-stage{min-height:480px}
+@media(max-width:560px){#p-use-world .uw-stage{min-height:380px;padding:32px 12px}#p-use-world .uw-cap{padding:16px 18px 20px}}
+#p-use-world .uw-ooh{width:100%;max-width:1000px;display:flex;align-items:flex-end;justify-content:center}
+#p-use-world .uw-ooh .uw-svg:first-child{flex:640 1 0;min-width:0}#p-use-world .uw-ooh .uw-svg:last-child{flex:330 1 0;min-width:0}
+@media(max-width:700px){#p-use-world .uw-ooh{flex-wrap:wrap;gap:8px}#p-use-world .uw-ooh .uw-svg:first-child{flex-basis:100%}#p-use-world .uw-ooh .uw-svg:last-child{flex:0 0 78%}}
+#p-use-world .uw-stage::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;opacity:0;transition:opacity .5s;
+  background:radial-gradient(40% 50% at calc(var(--mx,30)*1%) calc(var(--my,20)*1%),rgba(255,255,255,.28),transparent 70%)}
+#p-use-world .uw-tile.is-on .uw-stage::after{opacity:1}
+#p-use-world .uw-sand{background:#F0EFEC}#p-use-world .uw-black{background:radial-gradient(70% 60% at 30% 15%,#1B1D22,#000 70%)}
+#p-use-world .uw-page{background:radial-gradient(60% 50% at 30% 10%,#fff,#F2F3F5);box-shadow:inset 0 -1px 0 var(--line)}
+#p-use-world .uw-blue{background:var(--blue)}#p-use-world .uw-subtle{background:var(--subtle)}
+#p-use-world .uw-t{width:100%;display:grid;place-items:center;transform-style:preserve-3d;
+  transform:perspective(1400px) rotateX(calc(var(--ry,0)*1deg)) rotateY(calc(var(--rx,0)*1deg));transition:transform .6s var(--ease)}
+#p-use-world .uw-svg{width:100%;max-width:var(--mw,640px);height:auto;overflow:visible}
+#p-use-world .uw-svg text{font-family:var(--font);letter-spacing:-.01em}
+#p-use-world .uw-lift,#p-use-world .uw-drift,#p-use-world .uw-hello,#p-use-world .uw-bal{transition:transform .9s var(--ease),opacity .8s var(--ease)}
+
+/* caption */
+#p-use-world .uw-cap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 16px;align-items:baseline;padding:18px 24px 22px;background:#fff;border-top:1px solid var(--line-2)}
+#p-use-world .uw-n{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums;letter-spacing:0}
+#p-use-world .uw-name{font-size:19px;font-weight:400;letter-spacing:-.02em;line-height:1.25}
+#p-use-world .uw-spec{grid-column:2;font-size:13px;color:var(--ink-3);line-height:1.4}
+
+/* 21 cards */
+#p-use-world .uw-fan{position:relative;width:min(100%,960px);height:calc(var(--cw)*.95);--cw:clamp(150px,24vw,330px);transform-style:preserve-3d;margin:auto}
+#p-use-world .uw-c{position:absolute;left:50%;top:50%;width:var(--cw);aspect-ratio:8/5;margin:calc(var(--cw)*-.3125) 0 0 calc(var(--cw)*-.5);transform-style:preserve-3d;
+  transform:translate3d(calc(var(--k)*var(--cw)*.66),calc(var(--k)*var(--k)*var(--cw)*.06),calc((1 - var(--k)*var(--k))*30px)) rotate(calc(var(--k)*7deg));transition:transform .9s var(--ease)}
+#p-use-world .uw-tile.is-on .uw-c{transform:translate3d(calc(var(--k)*var(--cw)*.76),calc(var(--k)*var(--k)*var(--cw)*.04),calc((1 - var(--k)*var(--k))*30px)) rotate(calc(var(--k)*3deg))}
+#p-use-world .uw-flip{position:absolute;inset:0;transform-style:preserve-3d;transition:transform 1s var(--ease)}
+#p-use-world .uw-tile.is-on .uw-flip{transform:rotateY(180deg)}
+#p-use-world .uw-c:nth-child(2) .uw-flip{transition-delay:90ms}#p-use-world .uw-c:nth-child(3) .uw-flip{transition-delay:180ms}
+#p-use-world .uw-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:5%/8%;overflow:hidden;
+  box-shadow:0 1px 2px rgba(30,45,70,.18),-4px 14px 30px -8px rgba(30,45,70,.38)}
+#p-use-world .uw-face svg{width:100%;height:100%}
+#p-use-world .uw-back{transform:rotateY(180deg)}
+#p-use-world .uw-face::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s;mix-blend-mode:soft-light;
+  background:radial-gradient(70% 90% at calc(var(--mx,30)*1%) calc(var(--my,20)*1%),rgba(255,255,255,.7),transparent 65%)}
+#p-use-world .uw-tile.is-on .uw-face::after{opacity:1}
+#p-use-world .uw-floor{position:absolute;left:50%;bottom:8%;width:70%;height:12%;translate:-50% 0;border-radius:50%;background:radial-gradient(closest-side,rgba(40,70,110,.28),transparent);filter:blur(10px)}
+
+/* 22–25, 29, 30 svg interactions */
+#p-use-world .uw-tile.is-on .uw-l22{transform:translate(-10px,-18px) rotate(-3deg)}
+#p-use-world .uw-tile.is-on .uw-l23{transform:translateY(-80px)}
+#p-use-world .uw-band{transition:transform .5s var(--ease)}
+#p-use-world .uw-band{transform:translateX(calc(var(--mx,30)*3px - 90px))}
+#p-use-world .uw-tile.is-on .uw-l24{transform:translate(118px,-26px) rotate(7deg)}
+#p-use-world .uw-s1{transition:opacity .4s}#p-use-world .uw-tile.is-on .uw-s1{opacity:0}
+#p-use-world .uw-s2{opacity:0;transition:opacity .5s .55s}#p-use-world .uw-tile.is-on .uw-s2{opacity:1}
+#p-use-world .uw-chk{stroke-dasharray:40;stroke-dashoffset:40;transition:stroke-dashoffset .6s .9s var(--ease)}
+#p-use-world .uw-tile.is-on .uw-chk{stroke-dashoffset:0}
+#p-use-world .uw-wave{animation:use-world-pulse 2.4s ease-in-out infinite}
+#p-use-world .uw-wave:nth-child(2){animation-delay:.3s}#p-use-world .uw-wave:nth-child(3){animation-delay:.6s}
+#p-use-world .uw-rings{transform-box:fill-box;transform-origin:center}
+#p-use-world .uw-tile.is-on .uw-rings{animation:use-world-spin 30s linear infinite}
+#p-use-world .uw-bal{opacity:0;transform:translateY(8px);transition-delay:.2s}
+#p-use-world .uw-tile.is-on .uw-bal{opacity:1;transform:none}
+#p-use-world .uw-tile.is-on .uw-hello{transform:translateY(-16px)}
+#p-use-world .uw-tile.is-on .uw-slot{animation:use-world-glow 1.6s ease-in-out infinite}
+#p-use-world .uw-halo{opacity:.35;transition:opacity 1s var(--ease)}#p-use-world .uw-tile.is-on .uw-halo{opacity:1}
+#p-use-world .uw-sweep{transform:translateX(-340px)}
+#p-use-world .uw-tile.is-on .uw-sweep{transition:transform 2s var(--ease-io);transform:translateX(1000px)}
+#p-use-world .uw-lamp{opacity:0;transition:opacity 1s var(--ease)}#p-use-world .uw-tile.is-on .uw-lamp{opacity:1}
+#p-use-world .uw-tile.is-on .uw-drift{transform:translateY(-8px)}
+#p-use-world .uw-drift:nth-of-type(2){transition-delay:.08s}
+
+/* 26 phones */
+#p-use-world .uw-trio{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(10px,2.4vw,40px);--pw:clamp(150px,17vw,250px)}
+#p-use-world .uw-trio .phone{--w:var(--pw)}
+#p-use-world .uw-lock{background:linear-gradient(180deg,#A9C7EE 0%,#CFE0F5 52%,#F3F5F7 100%)}
+#p-use-world .uw-home{background:linear-gradient(165deg,#7F9AB9,#B5C5D8 55%,#E4E9F0)}
+#p-use-world .uw-lock .phone-status,#p-use-world .uw-home .phone-status{color:#0B0B0C}
+#p-use-world .uw-home .phone-status{color:#fff}
+#p-use-world .uw-clock{text-align:center;font-size:4.6em;line-height:1;margin-top:.7em;color:#fff;letter-spacing:-.04em}
+#p-use-world .uw-date{text-align:center;font-size:1.15em;color:#27425F;margin-top:.5em}
+#p-use-world .uw-note{margin:auto .8em 4.2em;padding:.9em;border-radius:1.6em;background:rgba(255,255,255,.86);display:flex;gap:.8em;align-items:center;box-shadow:0 .6em 1.6em -.6em rgba(40,60,90,.4)}
+#p-use-world .uw-note .appicon{width:2.9em;flex:none;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+#p-use-world .uw-note b{font-weight:500;display:block;font-size:1em;color:var(--ink)}
+#p-use-world .uw-note small{display:block;font-size:.95em;color:var(--ink-2);line-height:1.3}
+#p-use-world .uw-note em{font-style:normal;float:right;font-size:.85em;color:var(--ink-3)}
+#p-use-world .uw-tile.is-on .uw-note{animation:use-world-drop 1s var(--ease)}
+#p-use-world .uw-gridi{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1em 0;padding:1em 1.1em;justify-items:center}
+#p-use-world .uw-ico{width:3.1em;aspect-ratio:1;border-radius:23%;box-shadow:0 .3em .6em -.2em rgba(30,45,70,.35)}
+#p-use-world .uw-dock{position:absolute;left:.8em;right:.8em;bottom:2.2em;padding:.7em;border-radius:1.8em;background:rgba(255,255,255,.38);display:flex;justify-content:space-around;backdrop-filter:blur(8px)}
+#p-use-world .uw-wbars rect{transform-box:fill-box;transform-origin:50% 100%}
+#p-use-world .uw-tile.is-on .uw-wbars rect{animation:use-world-grow .9s var(--ease) both;animation-delay:calc(var(--i)*14ms)}
+
+/* 27 mail */
+#p-use-world .uw-mail{width:min(100%,720px);background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 3px rgba(30,45,70,.12),10px 34px 60px -24px rgba(30,45,70,.45),0 0 0 1px rgba(30,45,70,.08)}
+#p-use-world .uw-bar{display:flex;gap:7px;align-items:center;height:36px;padding:0 14px;background:linear-gradient(#F7F8FA,#ECEEF1);border-bottom:1px solid var(--line)}
+#p-use-world .uw-bar i{width:11px;height:11px;border-radius:50%;background:#D5D8DD}
+#p-use-world .uw-bar span{margin-left:auto;margin-right:auto;font-size:12px;color:var(--ink-3)}
+#p-use-world .uw-mb{display:grid;grid-template-columns:150px minmax(0,1fr)}
+@media(max-width:620px){#p-use-world .uw-mb{grid-template-columns:1fr}#p-use-world .uw-side{display:none}}
+#p-use-world .uw-side{background:#F7F8FA;border-right:1px solid var(--line);padding:16px 12px;display:grid;gap:8px;align-content:start;font-size:12px;color:var(--ink-2)}
+#p-use-world .uw-side div{padding:7px 10px;border-radius:8px}#p-use-world .uw-side .on{background:#fff;box-shadow:0 0 0 1px var(--line);color:var(--ink)}
+#p-use-world .uw-msg{padding:18px clamp(14px,2vw,24px) 22px;font-size:13px}
+#p-use-world .uw-from{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+#p-use-world .uw-from .appicon{width:34px;box-shadow:0 0 0 1px var(--line)}
+#p-use-world .uw-from b{font-weight:500;display:block;font-size:13px}#p-use-world .uw-from span{color:var(--ink-3);font-size:12px}
+#p-use-world .uw-subj{font-size:15px;letter-spacing:-.02em;margin-bottom:14px}
+#p-use-world .uw-news{position:relative;border-radius:12px;overflow:hidden;padding:18px 20px 12px;color:#fff;min-height:190px;display:flex;flex-direction:column;justify-content:space-between}
+#p-use-world .uw-news .uw-nr{position:absolute;inset:0;width:100%;height:100%;opacity:.8}
+#p-use-world .uw-news .uw-top{display:flex;align-items:center;gap:8px;position:relative;font-size:16px;letter-spacing:-.03em}
+#p-use-world .uw-news .uw-top .mark{width:20px;height:20px}
+#p-use-world .uw-news h3{position:relative;font-size:clamp(19px,2.3vw,27px);line-height:1.1;letter-spacing:-.03em;margin:22px 0 14px;max-width:16em}
+#p-use-world .uw-mbars{position:relative;margin-top:auto}
+#p-use-world .uw-tile.is-on .uw-mbars rect{animation:use-world-grow .9s var(--ease) both;animation-delay:calc(var(--i)*10ms)}
+#p-use-world .uw-ln{display:block;height:7px;border-radius:4px;background:var(--line-2);margin-top:9px}
+#p-use-world .uw-sig{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);display:flex;gap:12px;align-items:center;color:var(--ink-2);font-size:12px;line-height:1.5}
+#p-use-world .uw-sig .appicon{width:42px;box-shadow:0 0 0 1px var(--line)}
+#p-use-world .uw-sig b{font-weight:500;color:var(--ink);font-size:14px;display:block;letter-spacing:-.02em}
+
+/* 28 browser */
+#p-use-world .uw-bw{position:relative;width:min(100%,700px);padding-bottom:0}
+#p-use-world .uw-browser{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 3px rgba(30,45,70,.12),10px 34px 60px -24px rgba(30,45,70,.4),0 0 0 1px rgba(30,45,70,.08);position:relative}
+#p-use-world .uw-tabs{display:flex;gap:6px;align-items:flex-end;padding:10px 12px 0;background:#E5E8EC}
+#p-use-world .uw-tab{display:flex;align-items:center;gap:8px;height:34px;padding:0 12px;border-radius:10px 10px 0 0;font-size:12px;max-width:290px;min-width:0;background:#fff;color:var(--ink)}
+#p-use-world .uw-tab.off{background:rgba(255,255,255,.45);width:120px;color:var(--ink-3)}
+#p-use-world .uw-tab span.t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#p-use-world .uw-fav{width:16px;flex:none;border-radius:4px}
+#p-use-world .uw-tile.is-on .uw-fav{animation:use-world-turn .9s var(--ease)}
+#p-use-world .uw-url{display:flex;gap:10px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line);color:var(--ink-3)}
+#p-use-world .uw-addr{flex:1;height:28px;border-radius:999px;background:var(--subtle);display:flex;align-items:center;padding:0 14px;font-size:12px;color:var(--ink-2)}
+#p-use-world .uw-load{position:absolute;left:0;right:0;top:80px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;opacity:0}
+#p-use-world .uw-tile.is-on .uw-load{animation:use-world-load 1.7s var(--ease) forwards}
+#p-use-world .uw-pg{padding:clamp(22px,4vw,44px);min-height:230px;display:flex;justify-content:space-between;gap:16px;align-items:flex-start;color:#fff}
+#p-use-world .uw-pg h3{font-size:clamp(20px,3vw,32px);line-height:1.08;letter-spacing:-.03em;max-width:10em}
+#p-use-world .uw-pg .uw-pc{width:clamp(90px,16vw,150px);flex:none;filter:drop-shadow(6px 12px 14px rgba(30,45,70,.3))}
+#p-use-world .uw-prev{position:absolute;right:-18px;bottom:-34px;width:min(62%,300px);background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 3px rgba(30,45,70,.12),8px 24px 44px -14px rgba(30,45,70,.5),0 0 0 1px rgba(30,45,70,.08);transition:transform .9s var(--ease)}
+#p-use-world .uw-tile.is-on .uw-prev{transform:translateY(-12px)}
+#p-use-world .uw-prev .im{height:92px;display:grid;place-items:center;color:#fff}
+#p-use-world .uw-prev .im .mark{width:34px;height:34px}
+#p-use-world .uw-prev .tx{padding:10px 14px 14px}
+#p-use-world .uw-prev small{display:block;font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.02em}
+#p-use-world .uw-prev b{display:block;font-weight:500;font-size:13px;line-height:1.3;margin-top:3px;letter-spacing:-.01em}
+#p-use-world .uw-favs{display:flex;gap:12px;align-items:flex-end;margin-top:18px;color:var(--ink-2);font-size:11px}
+#p-use-world .uw-favs .appicon{box-shadow:0 0 0 1px var(--line),0 6px 12px -6px rgba(30,45,70,.35)}
+@media(max-width:700px){#p-use-world .uw-prev{position:relative;right:auto;bottom:auto;margin:16px 0 0 auto;width:min(100%,300px)}}
+
+@keyframes use-world-spin{to{transform:rotate(360deg)}}
+@keyframes use-world-pulse{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes use-world-glow{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes use-world-drop{from{opacity:0;transform:translateY(-1.6em) scale(.97)}}
+@keyframes use-world-grow{from{transform:scaleY(.05)}}
+@keyframes use-world-load{0%{transform:scaleX(0);opacity:1}80%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}
+@keyframes use-world-turn{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+</style>
+
+<div class="wrap">
+  <header class="uw-head">
+    <p class="eyebrow blue">BRAND IN USE</p>
+    <h1 class="h1">Cards, digital &amp; spaces</h1>
+    <p class="ghost uw-sub">21–30 of 30</p>
+    <nav class="uw-sib" aria-label="Brand in use pages">
+      <a href="/use-print">Stationery &amp; print</a>
+      <a href="/use-merch">Merch &amp; objects</a>
+      <a href="/use-world" aria-current="page">Cards, digital &amp; spaces</a>
+    </nav>
+  </header>
+
+  <div class="uw-grid">
+
+    <article class="card uw-tile uw-wide" role="group" tabindex="0" aria-label="21 Payment cards. Hover, focus or press Enter to flip the cards." data-reveal>
+      <div class="uw-stage sky uw-hero"><div class="uw-t">
+        <div class="uw-fan">
+          <div class="uw-floor" aria-hidden="true"></div>
+          <div class="uw-c" style="--k:-1"><div class="uw-flip"><div class="uw-face"><div data-card="sage"></div></div><div class="uw-face uw-back" data-back="sage"></div></div></div>
+          <div class="uw-c" style="--k:1"><div class="uw-flip"><div class="uw-face"><div data-card="blue"></div></div><div class="uw-face uw-back" data-back="blue"></div></div></div>
+          <div class="uw-c" style="--k:0"><div class="uw-flip"><div class="uw-face"><div data-card="ice"></div></div><div class="uw-face uw-back" data-back="ice"></div></div></div>
+        </div>
+      </div></div>
+      <div class="uw-cap"><span class="uw-n">21</span><h2 class="uw-name">Payment cards</h2><p class="uw-spec">Three card finishes, 85.6 × 54 mm, front and back</p></div>
+    </article>
+
+    <article class="card uw-tile" role="group" tabindex="0" aria-label="22 Card carrier. Hover, focus or press Enter to lift the card." data-reveal>
+      <div class="uw-stage uw-sand"><div class="uw-t" data-uw="carrier"></div></div>
+      <div class="uw-cap"><span class="uw-n">22</span><h2 class="uw-name">Card carrier</h2><p class="uw-spec">Tri-fold letter on uncoated stock, card tipped on</p></div>
+    </article>
+
+    <article class="card uw-tile" role="group" tabindex="0" aria-label="23 Metal card in sleeve. Hover, focus or press Enter to slide the card out." data-reveal data-delay="80">
+      <div class="uw-stage uw-black"><div class="uw-t" data-uw="sleeve"></div></div>
+      <div class="uw-cap"><span class="uw-n">23</span><h2 class="uw-name">Metal card in sleeve</h2><p class="uw-spec">Brushed metal card, paper sleeve</p></div>
+    </article>
+
+    <article class="card uw-tile" role="group" tabindex="0" aria-label="24 Contactless payment. Hover, focus or press Enter to tap the card." data-reveal>
+      <div class="uw-stage steel-grad"><div class="uw-t" data-uw="pos"></div></div>
+      <div class="uw-cap"><span class="uw-n">24</span><h2 class="uw-name">Contactless payment</h2><p class="uw-spec">Card tap on a countertop terminal</p></div>
+    </article>
+
+    <article class="card uw-tile" role="group" tabindex="0" aria-label="25 ATM screen. Hover, focus or press Enter to animate the screen." data-reveal data-delay="80">
+      <div class="uw-stage uw-page"><div class="uw-t" data-uw="atm"></div></div>
+      <div class="uw-cap"><span class="uw-n">25</span><h2 class="uw-name">ATM screen</h2><p class="uw-spec">Kiosk display, sky gradient interface</p></div>
+    </article>
+
+    <article class="card uw-tile uw-wide" role="group" tabindex="0" aria-label="26 Phone and watch. Hover, focus or press Enter to replay the notification." data-reveal>
+      <div class="uw-stage mist"><div class="uw-t uw-trio">
+        <div class="phone" role="img" aria-label="Phone lock screen with a notification: Client payment 8,450.00 EUR">
+          <i class="phone-island"></i>
+          <div class="phone-screen uw-lock">
+            <div class="phone-status"><span>9:41</span><span aria-hidden="true">●●●</span></div>
+            <div class="uw-clock">9:41</div><div class="uw-date">23 March</div>
+            <div class="uw-note"><span class="appicon" data-mark></span><div style="min-width:0;flex:1"><b>Runo<em>now</em></b><small>Client payment</small><small><b style="display:inline">8,450.00 EUR</b></small></div></div>
+          </div><span class="phone-home"></span>
+        </div>
+        <div class="phone" role="img" aria-label="Phone home screen with the Runo app icon in the dock">
+          <i class="phone-island"></i>
+          <div class="phone-screen uw-home">
+            <div class="phone-status"><span>9:41</span><span aria-hidden="true">●●●</span></div>
+            <div class="uw-gridi" data-uw="grid"></div>
+            <div class="uw-dock" data-uw="dock"></div>
+          </div><span class="phone-home" style="background:#fff"></span>
+        </div>
+        <div data-uw="watch" style="width:clamp(86px,9vw,130px)"></div>
+      </div></div>
+      <div class="uw-cap"><span class="uw-n">26</span><h2 class="uw-name">Phone and watch</h2><p class="uw-spec">Lock screen, home screen, watch face</p></div>
+    </article>
+
+    <article class="card uw-tile" role="group" tabindex="0" aria-label="27 Email signature and newsletter header. Hover, focus or press Enter to animate the header." data-reveal>
+      <div class="uw-stage uw-blue"><div class="uw-t">
+        <div class="uw-mail" role="group" aria-label="Mail client showing a Runo newsletter and email signature">
+          <div class="uw-bar" aria-hidden="true"><i></i><i></i><i></i><span>Inbox</span></div>
+          <div class="uw-mb">
+            <div class="uw-side" aria-hidden="true"><div class="on">Inbox</div><div>Starred</div><div>Sent</div><div>Drafts</div></div>
+            <div class="uw-msg">
+              <div class="uw-from"><span class="appicon" data-mark></span><div><b>Runo</b><span>hello@runo.finance</span></div></div>
+              <p class="uw-subj">A new standard for financial control, meet Runo.</p>
+              <div class="uw-news sky">
+                <svg class="uw-nr" data-uw="nrings" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+                <div class="uw-top"><span data-mark-inline></span>Runo.</div>
+                <h3>Designed for teams that manage money at scale</h3>
+                <div class="uw-mbars" data-uw="mbars"></div>
+              </div>
+              <i class="uw-ln" style="width:94%"></i><i class="uw-ln" style="width:88%"></i><i class="uw-ln" style="width:62%"></i>
+              <div class="uw-sig"><span class="appicon" data-mark></span><div><b>David Clark</b>Runo Finance<br>hello@runo.finance · 1800 123 4567 · runo.finance</div></div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      <div class="uw-cap"><span class="uw-n">27</span><h2 class="uw-name">Email signature &amp; newsletter</h2><p class="uw-spec">HTML email, header band and signature block</p></div>
+    </article>
+
+    <article class="card uw-tile" role="group" tabindex="0" aria-label="28 Browser tab and link preview. Hover, focus or press Enter to load the page." data-reveal data-delay="80">
+      <div class="uw-stage uw-subtle"><div class="uw-t">
+        <div class="uw-bw">
+          <div class="uw-browser" role="group" aria-label="Browser window, tab titled Runo — A new standard for financial control, address runo.finance">
+            <div class="uw-tabs" aria-hidden="true">
+              <div class="uw-tab"><span class="appicon uw-fav" data-mark></span><span class="t">Runo — A new standard for financial control</span></div>
+              <div class="uw-tab off"><span class="t">New tab</span></div>
+            </div>
+            <div class="uw-url" aria-hidden="true"><span data-i="arrow-left"></span><span data-i="arrow-right"></span><div class="uw-addr">runo.finance</div></div>
+            <div class="uw-load" aria-hidden="true"></div>
+            <div class="uw-pg sky"><h3>Designed for teams that manage money at scale</h3><div class="uw-pc" data-card="ice"></div></div>
+          </div>
+          <div class="uw-prev" role="group" aria-label="Link preview card for runo.finance">
+            <div class="im steel-grad"><span data-mark-inline></span></div>
+            <div class="tx"><small>runo.finance</small><b>Runo — A new standard for financial control</b></div>
+          </div>
+        </div>
+        <div class="uw-favs" role="group" aria-label="Favicon sizes"><span class="appicon" style="width:64px"><svg class="mark" viewBox="0 0 362 360" aria-hidden="true"><use href="#runo-mark"/></svg></span><span class="appicon" style="width:32px"><svg class="mark" viewBox="0 0 362 360" aria-hidden="true"><use href="#runo-mark"/></svg></span><span class="appicon" style="width:16px"><svg class="mark" viewBox="0 0 362 360" aria-hidden="true"><use href="#runo-mark"/></svg></span>Favicon 64 · 32 · 16</div>
+      </div></div>
+      <div class="uw-cap"><span class="uw-n">28</span><h2 class="uw-name">Browser tab &amp; link preview</h2><p class="uw-spec">Favicon, tab title, social link card</p></div>
+    </article>
+
+    <article class="card uw-tile uw-wide" role="group" tabindex="0" aria-label="29 Office signage. Hover, focus or press Enter to light the sign." data-reveal>
+      <div class="uw-stage sky-soft"><div class="uw-t" data-uw="office"></div></div>
+      <div class="uw-cap"><span class="uw-n">29</span><h2 class="uw-name">Office signage</h2><p class="uw-spec">Relief mark on reception wall, wayfinding plate</p></div>
+    </article>
+
+    <article class="card uw-tile uw-wide" role="group" tabindex="0" aria-label="30 Out-of-home. Hover, focus or press Enter to light the billboard and poster." data-reveal>
+      <div class="uw-stage sky"><div class="uw-t" data-uw="ooh"></div></div>
+      <div class="uw-cap"><span class="uw-n">30</span><h2 class="uw-name">Out-of-home</h2><p class="uw-spec">Billboard and bus-shelter poster, backlit</p></div>
+    </article>
+
+  </div>
+</div>
+</section>

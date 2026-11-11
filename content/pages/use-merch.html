@@ -1,0 +1,94 @@
+<section class="page is-active" id="p-use-merch" aria-label="Brand in use — Merch &amp; objects">
+<style>
+#p-use-merch{--um-c:#000;--um-m:#fff}
+/* header, grid, tile, stage and caption follow the shared "Brand in use" pattern (same as use-print / use-world) */
+#p-use-merch .um-head{padding-top:clamp(40px,6vw,88px);padding-bottom:clamp(28px,4vw,56px)}
+#p-use-merch .um-head .eyebrow{margin-bottom:14px}
+#p-use-merch .um-sub{font-size:clamp(26px,3.2vw,48px);line-height:1.08;letter-spacing:-.03em;margin-top:8px}
+#p-use-merch .um-links{display:flex;flex-wrap:wrap;gap:6px 30px;margin-top:30px;font-size:15px}
+#p-use-merch .um-links a{position:relative;padding:8px 0;color:var(--ink-2);transition:color .25s}
+#p-use-merch .um-links a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+#p-use-merch .um-links a:hover,#p-use-merch .um-links a[aria-current]{color:var(--ink)}
+#p-use-merch .um-links a:hover::after,#p-use-merch .um-links a[aria-current]::after{transform:scaleX(1)}
+#p-use-merch .um-links a:active{opacity:.7}
+#p-use-merch .um-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(16px,2vw,28px)}
+@media(min-width:1000px){#p-use-merch .um-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#p-use-merch .um-w{grid-column:1/-1}}
+#p-use-merch .um-tile{display:flex;flex-direction:column;box-shadow:0 0 0 1px var(--line);min-width:0}
+#p-use-merch .um-stage{flex:1;position:relative;min-height:420px;display:grid;place-items:center;overflow:hidden;
+  padding:28px 20px 64px;cursor:default;touch-action:pan-y}
+#p-use-merch .um-w .um-stage{min-height:480px}
+#p-use-merch .um-stage:focus-visible{outline:2px solid var(--accent-ink);outline-offset:-4px}
+@media(max-width:560px){#p-use-merch .um-stage{min-height:380px;padding:24px 12px 64px}#p-use-merch .um-hint{display:none}}
+#p-use-merch .s-sand{background:var(--sand)}#p-use-merch .s-page{background:var(--page);box-shadow:inset 0 0 0 1px var(--line)}
+#p-use-merch .s-blue{background:var(--blue)}#p-use-merch .s-black{background:#000}
+#p-use-merch .um-obj{width:100%;max-width:640px;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .6s var(--ease)}
+#p-use-merch .um-w .um-obj{max-width:820px}
+#p-use-merch .um-obj svg{width:100%;height:auto;max-height:440px;overflow:visible}
+#p-use-merch .um-stage.tilting .um-obj{transition:transform .12s linear}
+#p-use-merch .um-ctl{position:absolute;left:16px;right:16px;bottom:14px;display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;pointer-events:none}
+#p-use-merch .um-ctl>*{pointer-events:auto}
+#p-use-merch .um-sw{display:flex;gap:6px}
+#p-use-merch .um-dot{width:28px;height:28px;border-radius:50%;background:var(--s);box-shadow:inset 0 0 0 1px rgba(0,0,0,.28),0 1px 2px rgba(20,30,50,.18);
+  transition:transform .3s var(--ease),box-shadow .3s}
+#p-use-merch .um-dot:hover{transform:translateY(-2px)}
+#p-use-merch .um-dot[aria-pressed="true"]{box-shadow:inset 0 0 0 1px rgba(0,0,0,.28),0 0 0 2px var(--page),0 0 0 4px var(--ink)}
+#p-use-merch .um-sn{font-size:13px;color:#27425F}
+#p-use-merch .um-pill{height:30px;padding:0 14px;border-radius:999px;font-size:13px;background:rgba(255,255,255,.85);color:var(--ink);
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);transition:background .25s,color .25s}
+#p-use-merch .um-pill:hover{background:#fff}
+#p-use-merch .um-pill[aria-pressed="true"]{background:#000;color:#fff}
+#p-use-merch .um-hint{font-size:12px;color:#27425F;margin-left:auto}
+#p-use-merch .s-black .um-hint,#p-use-merch .s-black .um-sn{color:#B9C7D8}
+#p-use-merch .um-cap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 16px;align-items:baseline;padding:18px 24px 22px;background:#fff;border-top:1px solid var(--line-2)}
+#p-use-merch .um-num{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+#p-use-merch .um-cap h2{font-size:19px;font-weight:400;letter-spacing:-.02em;line-height:1.25}
+#p-use-merch .um-cap p{grid-column:2;font-size:13px;color:var(--ink-3);line-height:1.4}
+@media(max-width:560px){#p-use-merch .um-cap{padding:16px 18px 20px}}
+/* shared object motion */
+#p-use-merch .um-sway{transition:transform 1s var(--ease)}
+#p-use-merch .is-on .um-sway{animation:use-merch-sway 3.2s ease-in-out infinite}
+@keyframes use-merch-sway{0%,100%{transform:rotate(0)}30%{transform:rotate(2.4deg)}70%{transform:rotate(-2.4deg)}}
+#p-use-merch .um-g{transition:transform .9s var(--ease),opacity .6s var(--ease),fill .6s}
+#p-use-merch .um-bp{transition:opacity .5s}
+#p-use-merch .m-off .um-bp{opacity:0}
+#p-use-merch .m-tags .um-big{opacity:0}#p-use-merch .um-tg{opacity:0;transition:opacity .6s}#p-use-merch .m-tags .um-tg{opacity:1}
+#p-use-merch .um-big{transition:opacity .6s}
+#p-use-merch .is-on .um-capg{transform:translateY(-6px) rotate(-1.5deg)}
+#p-use-merch .um-capg{transition:transform 1s var(--ease);transform-origin:280px 300px}
+#p-use-merch .um-sheen{transform:translateX(-120px);transition:transform 1.4s var(--ease)}
+#p-use-merch .is-on .um-sheen{transform:translateX(150px)}
+#p-use-merch .um-cap-b{transition:transform .9s var(--ease);transform-origin:280px 100px}
+#p-use-merch .is-on .um-cap-b{transform:translateY(-26px) rotate(-8deg)}
+#p-use-merch .um-bw{transform-origin:280px 180px}
+#p-use-merch .is-on .um-bw{animation:use-merch-swing 3.4s ease-in-out infinite alternate}
+@keyframes use-merch-swing{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
+#p-use-merch .um-p1,#p-use-merch .um-p2,#p-use-merch .um-p3{transition:transform .9s var(--ease)}
+#p-use-merch .is-on .um-p1{transform:translate(-10px,-14px) rotate(-6deg)}
+#p-use-merch .is-on .um-p2{transform:translate(8px,-10px) rotate(8deg)}
+#p-use-merch .is-on .um-p3{transform:translate(0,-8px) rotate(5deg)}
+#p-use-merch .um-pen,#p-use-merch .um-pcl{transition:transform 1s var(--ease)}
+#p-use-merch .um-pen{transform:translate(100px,126px) rotate(-9deg)}
+#p-use-merch .um-pcl{transform:translate(120px,192px) rotate(-5deg)}
+#p-use-merch .is-on .um-pen{transform:translate(80px,100px) rotate(-14deg)}
+#p-use-merch .is-on .um-pcl{transform:translate(150px,200px) rotate(-1deg)}
+#p-use-merch .um-lid{transform:translateX(300px);transition:transform 1.2s var(--ease)}
+#p-use-merch .is-on .um-lid{transform:translateX(660px)}
+#p-use-merch .um-nb{transition:transform .9s var(--ease)}
+#p-use-merch .is-on .um-nb{transform:translateY(-6px) rotate(-1.2deg)}
+@media(prefers-reduced-motion:reduce){#p-use-merch .um-obj{transition:none}}
+</style>
+
+<div class="wrap">
+  <header class="um-head">
+    <p class="eyebrow blue">BRAND IN USE</p>
+    <h1 class="h1">Merch &amp; objects</h1>
+    <p class="um-sub ghost">11–20 of 30</p>
+    <nav class="um-links" aria-label="Brand in use pages">
+      <a href="/use-print">Stationery &amp; print</a>
+      <a href="/use-merch" aria-current="page">Merch &amp; objects</a>
+      <a href="/use-world">Cards, digital &amp; spaces</a>
+    </nav>
+  </header>
+  <div class="um-grid" id="um-grid"></div>
+</div>
+</section>

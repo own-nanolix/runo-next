@@ -1,0 +1,218 @@
+<section class="page is-active" id="p-strategy" aria-label="Strategy and impact">
+<style>
+#p-strategy{overflow-x:clip}
+#p-strategy .sy-up{font-size:clamp(13px,1.05vw,17px);letter-spacing:.01em;text-transform:uppercase;color:var(--ink-3)}
+#p-strategy .sy-sq{display:inline-block;width:7px;height:7px;background:var(--accent);margin-left:10px;vertical-align:1px}
+#p-strategy .sy-block{padding-block:clamp(48px,7vw,110px)}
+#p-strategy .sr-h{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---- scope ---- */
+#p-strategy .scope{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:48px;align-items:start;padding-top:clamp(36px,5vw,76px)}
+#p-strategy .scope ul{margin-top:clamp(28px,4vw,56px);display:grid;gap:4px}
+#p-strategy .scope li{font-size:clamp(14px,1.15vw,19px);text-transform:uppercase;color:var(--ink-3);line-height:1.75;position:relative;padding-left:0;transition:color .3s,padding .4s var(--ease)}
+#p-strategy .scope li:hover{color:var(--ink);padding-left:10px}
+#p-strategy .pc-stack{position:relative;padding-top:34px}
+#p-strategy .pc-stack::before,#p-strategy .pc-stack::after{content:"";position:absolute;left:14px;right:14px;height:36px;border:1px solid var(--line-2);border-bottom:0;border-radius:22px 22px 0 0}
+#p-strategy .pc-stack::before{top:0;left:30px;right:30px;opacity:.6}
+#p-strategy .pc-stack::after{top:16px;opacity:.9}
+#p-strategy .pc{position:relative;background:#fff;border-radius:22px;border:1px solid var(--line-2);padding:22px 22px 18px;box-shadow:0 18px 40px -30px rgba(40,70,110,.3);transition:transform .5s var(--ease),box-shadow .5s}
+#p-strategy .pc:hover{transform:translateY(-4px);box-shadow:0 28px 50px -28px rgba(40,70,110,.4)}
+#p-strategy .pc b{font-weight:400;font-size:13px;text-transform:uppercase;display:block;color:var(--ink)}
+#p-strategy .pc small{display:block;margin-top:6px;font-size:12px;color:var(--ink-3)}
+#p-strategy .pc div{display:flex;justify-content:space-between;align-items:center;margin-top:34px;font-size:14px;color:var(--ink-3)}
+#p-strategy .pc em{font-style:normal;background:#CFE0F8;color:#27598F;border-radius:6px;padding:7px 12px;font-size:13px}
+#p-strategy .task{margin-top:clamp(120px,16vw,260px);max-width:1330px;font-size:clamp(24px,2.4vw,40px);line-height:1.2;letter-spacing:-.025em;font-weight:400;color:var(--ink)}
+@media(max-width:900px){#p-strategy .scope{grid-template-columns:1fr}}
+
+/* ---- measurable shift ---- */
+#p-strategy .shift-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--line)}
+#p-strategy .steel-tag{display:inline-flex;align-items:center;gap:12px;height:clamp(42px,3vw,56px);padding:0 22px;background:var(--steel);color:#14202E;font-size:clamp(15px,1.2vw,21px)}
+#p-strategy .steel-tag i{width:7px;height:7px;background:#fff;display:block}
+#p-strategy .shift-body{position:relative;padding-top:clamp(120px,17vw,300px);padding-bottom:clamp(30px,5vw,80px);display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+#p-strategy .shift-h{position:relative;font-size:clamp(36px,5.4vw,104px);line-height:1.2;letter-spacing:-.04em;font-weight:400;max-width:11.4em}
+#p-strategy .sel{background:linear-gradient(#E3EEFC,#E3EEFC) no-repeat 0 0/0% 100%;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .1em;margin:0 -.1em;
+  transition:background-size 1.4s var(--ease-io) .25s,color .7s .6s}
+#p-strategy .go .sel{background-size:100% 100%;color:var(--accent)}
+#p-strategy .hs{position:absolute;width:2px;background:var(--accent);opacity:0;transition:opacity .5s 1.5s;pointer-events:none}
+#p-strategy .hs::after{content:"";position:absolute;left:-3.5px;width:9px;height:9px;background:var(--accent)}
+#p-strategy .hs.s::after{top:-4px}#p-strategy .hs.e::after{bottom:-4px}
+#p-strategy .go .hs{opacity:1}
+#p-strategy .shift-note{flex:none;width:min(320px,26vw);font-size:clamp(14px,1.1vw,18px);line-height:1.4;color:var(--ink-3)}
+@media(max-width:900px){#p-strategy .shift-body{flex-direction:column;align-items:flex-start}#p-strategy .shift-note{width:auto;max-width:360px}}
+
+/* ---- 86.3 / 13.7 ---- */
+#p-strategy .c1grid{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:clamp(24px,6vw,120px);padding-block:clamp(56px,7vw,110px);align-items:stretch}
+#p-strategy .c1note{font-size:clamp(15px,1.3vw,22px);line-height:1.4;color:var(--ink-3);max-width:15em;margin-bottom:clamp(12px,3vw,48px)}
+#p-strategy .scrollx{overflow-x:auto;padding-bottom:6px}
+#p-strategy .c1 svg{min-width:560px;width:100%;height:auto;overflow:visible}
+#p-strategy .c1 .bar{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform 1.7s var(--ease)}
+#p-strategy .c1 .go .bar{transform:scaleY(1)}
+#p-strategy .c1 .fade{opacity:0;transition:opacity .8s ease 1.2s}#p-strategy .c1 .go .fade{opacity:1}
+#p-strategy .c1 .ln rect{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform 1.1s var(--ease);transition-delay:calc(var(--i)*16ms + 700ms)}
+#p-strategy .c1 .go .ln rect{transform:scaleY(1)}
+#p-strategy .c1 .tick{opacity:0;transition:opacity .6s calc(var(--i)*30ms)}#p-strategy .c1 .go .tick{opacity:1}
+#p-strategy .c1 .grp{outline:none}
+#p-strategy .c1 .grp:hover .bar,#p-strategy .c1 .grp:focus-visible .bar{filter:brightness(.97)}
+#p-strategy .c1 .grp:hover .hd{transform:scale(1.35)}
+#p-strategy .c1 .hd{transform-box:fill-box;transform-origin:center;transition:transform .35s var(--ease)}
+#p-strategy .sand-panel{position:relative;background:#F0EFEC;min-height:clamp(440px,48vw,820px);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(24px,3vw,46px)}
+#p-strategy .sp-tab{position:absolute;left:0;top:0;height:56px;padding:0 22px;background:var(--page);display:flex;align-items:center;gap:12px;font-size:clamp(15px,1.2vw,21px);color:var(--ink-3)}
+#p-strategy .sp-tab i{width:7px;height:7px;background:#C9CED6;display:block}
+#p-strategy .sp-num{font-size:clamp(56px,7.2vw,138px);line-height:1;letter-spacing:-.04em;margin-bottom:clamp(40px,6vw,100px)}
+#p-strategy .sp-p{font-size:clamp(24px,1.55vw,30px);line-height:1.25;letter-spacing:-.02em;max-width:18em}
+@media(max-width:900px){#p-strategy .c1grid{grid-template-columns:1fr}#p-strategy .sand-panel{min-height:420px}}
+
+/* ---- impact ---- */
+#p-strategy .imp-h{margin-top:20px;font-size:clamp(28px,3.7vw,70px);line-height:1.15;letter-spacing:-.03em;font-weight:400;max-width:20em}
+#p-strategy .imp-h .hl{color:var(--accent)}
+#p-strategy .imp{position:relative;margin-top:clamp(30px,5vw,80px)}
+#p-strategy .imp-svg{width:100%;height:auto;overflow:visible;touch-action:pan-y}
+#p-strategy .imp .hair line{stroke-linecap:butt;opacity:0;transition:opacity .5s}
+#p-strategy .imp .hair line.on{opacity:var(--o,.75)}
+#p-strategy .imp .dot{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.2);transition:opacity .5s,transform .7s var(--ease)}
+#p-strategy .imp .dot.on{opacity:1;transform:none}
+#p-strategy .imp .late{opacity:0;transition:opacity .9s ease 2.4s}#p-strategy .imp.go .late{opacity:1}
+#p-strategy .imp .xh{opacity:0;transition:opacity .25s;pointer-events:none}#p-strategy .imp.hov .xh{opacity:1}
+#p-strategy .stages{position:relative;height:36px;margin-top:-6px}
+#p-strategy .stages button{position:absolute;top:0;translate:-50% 0;font-size:clamp(12px,1.05vw,18px);color:var(--ink-3);padding:6px 10px;border-radius:8px;transition:color .25s,background .25s,transform .25s}
+#p-strategy .stages button:hover,#p-strategy .stages button[aria-current="true"]{color:var(--ink);background:#EDF3FC}
+#p-strategy .stages button:active{transform:scale(.96)}
+#p-strategy .tip{position:absolute;pointer-events:none;translate:-50% -170%;background:#fff;border-radius:999px;padding:5px 12px;font-size:13px;color:#27598F;box-shadow:0 8px 24px -10px rgba(40,90,160,.45),0 0 0 1px rgba(108,176,247,.35);opacity:0;transition:opacity .2s,left .35s var(--ease),top .35s var(--ease);white-space:nowrap}
+#p-strategy .imp.hov .tip{opacity:1}
+@media(max-width:700px){#p-strategy .stages button:nth-child(even){display:none}}
+
+/* ---- +74 ---- */
+#p-strategy .c4head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+#p-strategy .c4num{font-size:clamp(56px,6vw,112px);line-height:1;letter-spacing:-.04em}
+#p-strategy .c4cap{margin-top:16px;font-size:clamp(17px,1.5vw,26px);letter-spacing:-.02em;font-weight:400}
+#p-strategy .legend{display:grid;gap:8px;justify-items:start;margin-top:14px}
+#p-strategy .legend button{display:inline-flex;align-items:center;gap:14px;font-size:clamp(17px,1.5vw,26px);letter-spacing:-.02em;color:var(--ink);padding:4px 8px;border-radius:8px;transition:opacity .3s,background .25s}
+#p-strategy .legend button:hover{background:#EEF3FA}
+#p-strategy .legend button i{width:9px;height:9px;display:block;background:var(--accent)}
+#p-strategy .legend button[data-s="sta"] i{background:#B9BDC4}
+#p-strategy .legend button[aria-pressed="false"]{color:var(--ink-3)}
+#p-strategy .legend button[aria-pressed="false"] i{background:#E1E4E8}
+#p-strategy .c4 svg{width:100%;height:auto;min-width:640px;overflow:visible}
+#p-strategy .c4 .ser{transition:opacity .5s}#p-strategy .c4 .ser.off{opacity:0}
+#p-strategy .c4 .pl{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s var(--ease-io)}
+#p-strategy .c4.go .pl{stroke-dashoffset:0}
+#p-strategy .c4 .ar rect{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform 1s var(--ease);transition-delay:calc(var(--i)*10ms + 300ms)}
+#p-strategy .c4.go .ar rect{transform:scaleY(1)}
+
+/* ---- solution ---- */
+#p-strategy .sol .sy-up{color:var(--ink-2)}
+#p-strategy .sol{background:#F0EFEC;border-radius:var(--r-card);padding:clamp(24px,3vw,46px);min-height:clamp(360px,38vw,640px);display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+#p-strategy .sol-row{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:40px;align-items:end}
+#p-strategy .sol h2{font-size:clamp(24px,2.8vw,46px);line-height:1.18;letter-spacing:-.03em;font-weight:400;max-width:15.5em}
+#p-strategy .sol p{font-size:clamp(16px,1.25vw,21px);line-height:1.35;max-width:23em;justify-self:end}
+@media(max-width:800px){#p-strategy .sol-row{grid-template-columns:1fr}#p-strategy .sol p{justify-self:start}}
+#p-strategy .map{container-type:inline-size;position:relative;margin-top:24px;aspect-ratio:100/66;border-radius:var(--r-card);overflow:hidden;background:linear-gradient(180deg,#E9F0FB 0%,#F4F8FD 55%,#FBFCFE 100%)}
+#p-strategy .map-bg{position:absolute;inset:0;width:100%;height:100%}
+#p-strategy .map-bg path{fill:none;animation:strategy-wave var(--wd,11s) ease-in-out infinite alternate;animation-delay:var(--wl,0s)}
+@keyframes strategy-wave{from{transform:translateX(-7px)}to{transform:translateX(9px)}}
+#p-strategy .bub{position:absolute;left:calc(var(--x)*1cqw - var(--s)*.5cqw);top:calc(var(--y)*1cqw - var(--s)*.5cqw);width:calc(var(--s)*1cqw);aspect-ratio:1;border-radius:50%;
+  background:rgba(255,255,255,.5);box-shadow:inset 0 0 0 1px rgba(186,213,243,.55);backdrop-filter:blur(3px);display:flex;flex-direction:column;justify-content:center;padding:0 15%;
+  animation:strategy-bob var(--bd,9s) ease-in-out infinite;animation-delay:var(--bl,0s);transition:transform .6s var(--ease),opacity .5s,background .4s,box-shadow .4s;outline:none;cursor:default}
+@keyframes strategy-bob{0%,100%{translate:0 0}50%{translate:0 -9px}}
+#p-strategy .bub h3{font-size:clamp(13px,1.15cqw,17px);font-weight:400;color:var(--ink);margin-bottom:.5em}
+#p-strategy .bub p{font-size:clamp(10.5px,.92cqw,13.5px);line-height:1.38;color:var(--ink-3)}
+#p-strategy .bub.core{background:#C9DDF7;box-shadow:none}
+#p-strategy .bub.core p{color:var(--ink-2)}
+#p-strategy .map[data-active] .bub:not(.is-on){opacity:.5}
+#p-strategy .bub.is-on,#p-strategy .bub:focus-visible{transform:scale(1.06);background:rgba(255,255,255,.9);box-shadow:inset 0 0 0 1.5px #8FB8E8,0 24px 50px -26px rgba(60,110,180,.55)}
+#p-strategy .bub.core.is-on{background:#BCD5F4}
+#p-strategy .bub:focus-visible{outline:2px solid var(--accent-ink);outline-offset:4px}
+@media(max-width:1000px){
+  #p-strategy .map{aspect-ratio:auto;display:flex;flex-wrap:wrap;justify-content:center;gap:18px;padding:36px 16px}
+  #p-strategy .bub{position:relative;left:auto;top:auto;width:min(300px,86%);padding:0 16%}
+  #p-strategy .bub h3{font-size:16px}#p-strategy .bub p{font-size:13px}
+}
+</style>
+
+<!-- ======================= SCOPE / TASK ======================= -->
+<div class="wrap">
+  <div class="scope">
+    <div data-reveal="fade">
+      <p class="sy-up">Scope of work:</p>
+      <ul aria-label="Scope of work">
+        <li>Product Strategy</li><li>UX Research &amp; Flows</li><li>Design System</li><li>AI Copilot Experience</li>
+        <li>Mobile &amp; Web Interfaces</li><li>Prototyping</li><li>Usability Testing</li><li>Product Marketing Website</li>
+      </ul>
+    </div>
+    <div class="pc-stack" data-reveal="left" data-delay="150">
+      <div class="pc"><b>Project context</b><small>Fintech · SaaS · AI-assisted</small><div><span>Financial operations</span><em>Review</em></div></div>
+    </div>
+  </div>
+  <h1 class="task" data-reveal>The task was to design a unified financial control layer that brings together cash, operations, and decision-making into one coherent system. Not only to visualize financial data, but to support action - reducing cognitive load and enabling faster, more confident decisions.</h1>
+</div>
+
+<!-- ======================= THE MEASURABLE SHIFT ======================= -->
+<div class="wrap sy-block">
+  <div class="shift-top">
+    <p class="sy-up">// The measurable shift<span class="sy-sq" aria-hidden="true"></span></p>
+    <span class="steel-tag"><i aria-hidden="true"></i>New Standard</span>
+  </div>
+  <div class="shift-body">
+    <h2 class="shift-h" id="sy-shift"><span data-count="81" data-suffix="%">81%</span> of financial workflows remain <span class="sel">invisible outside your awareness</span><span class="hs s" aria-hidden="true"></span><span class="hs e" aria-hidden="true"></span></h2>
+    <p class="shift-note" data-reveal="fade" data-delay="500">At this stage, Runo surface invisible system gaps and translate them into actionable clarity</p>
+  </div>
+</div>
+
+<!-- ======================= 86.3 / 13.7 ======================= -->
+<div class="wrap">
+  <h2 class="sr-h">Adaptive systems compared with static operations</h2>
+  <div class="c1grid">
+    <div>
+      <p class="c1note" data-reveal="fade">Automation replaces fragmented decision-making across financial systems</p>
+      <div class="scrollx c1"><div id="sy-c1"></div></div>
+    </div>
+    <div class="sand-panel" data-reveal="scale">
+      <span class="sp-tab"><i aria-hidden="true"></i>New Standard</span>
+      <div class="sp-num num"><span data-count="86.3" data-decimals="1" data-suffix="%">86.3%</span></div>
+      <p class="sp-p"><span class="ghost">Of financial operations remain</span> dependent on outdated workflows, limiting speed and clarity.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= IMPACT ======================= -->
+<div class="wrap sy-block">
+  <p class="sy-up" data-reveal="fade">Impact overview</p>
+  <h2 class="imp-h" data-reveal>Reduce <span class="hl">operational friction,</span> unlock <span class="hl">financial clarity</span> across payments, and business accounts.</h2>
+  <div class="scrollx"><div class="imp" id="sy-imp" style="min-width:680px">
+    <svg class="imp-svg" id="sy-imp-svg" viewBox="0 0 1780 700" role="img" aria-label="Line chart of operational friction across seven stages: Intake, Setup, Accounts, Payments, Automation, Insights, Scale. Friction stays high through intake and setup, falls by 60 percent around Accounts and Payments, rises briefly at Automation, then settles low through Insights and Scale."></svg>
+    <div class="tip" id="sy-tip" role="status" aria-live="polite"></div>
+    <div class="stages" id="sy-stages" role="group" aria-label="Stages, use arrow keys to step"></div>
+  </div></div>
+</div>
+
+<!-- ======================= +74% ======================= -->
+<div class="wrap sy-block" style="padding-top:0">
+  <div class="c4head">
+    <div><div class="c4num num" data-reveal><span data-count="74" data-prefix="+" data-suffix="%">+74%</span></div><h2 class="c4cap" data-reveal data-delay="100">Faster pattern recognition</h2></div>
+    <div class="legend" role="group" aria-label="Chart series" id="sy-legend">
+      <button type="button" data-s="sig" aria-pressed="true"><i aria-hidden="true"></i>Signal Detection</button>
+      <button type="button" data-s="sta" aria-pressed="true"><i aria-hidden="true"></i>Static Reporting</button>
+    </div>
+  </div>
+  <div class="scrollx c4" id="sy-c4wrap" style="margin-top:clamp(20px,4vw,60px)"><div id="sy-c4"></div></div>
+</div>
+
+<!-- ======================= SOLUTION ======================= -->
+<div class="wrap" style="padding-bottom:clamp(40px,6vw,100px)">
+  <div class="sol" data-reveal>
+    <p class="sy-up">Solution</p>
+    <div class="sol-row">
+      <h2>Interface designed to turn financial complexity into clear actions, supporting faster execution and more confident decision-making.</h2>
+      <p>Runo combines financial data, workflows, and AI assistance into a single control system.</p>
+    </div>
+  </div>
+  <div class="map" id="sy-map" role="group" aria-label="Control layer map">
+    <svg class="map-bg" id="sy-waves" viewBox="0 0 1000 660" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+    <article class="bub" tabindex="0" data-k="what" style="--x:19;--y:25;--s:24;--bd:9s;--bl:-1s"><h3>What Runo is</h3><p>Runo is a financial control layer designed for modern teams. It connects accounts, payments, and financial activity into one clear operational system.</p></article>
+    <article class="bub" tabindex="0" data-k="enables" style="--x:79;--y:31;--s:29;--bd:11s;--bl:-4s"><h3>What enables</h3><p>Runo gives teams real-time visibility over cash flow, outgoing activity, and commitments. It helps users understand what is happening and what to do next.</p></article>
+    <article class="bub core" tabindex="0" data-k="core" style="--x:47;--y:47;--s:25;--bd:10s;--bl:-2s"><h3>Control Layer</h3><p>Runo is a centralized financial control layer that unifies cash, operations, and decision-making into a single system.</p></article>
+    <article class="bub" tabindex="0" data-k="how" style="--x:74;--y:63;--s:21;--bd:8s;--bl:-6s"><h3>How it works</h3><p>Runo structures financial data into clear flows and supports execution through AI assistance.</p></article>
+    <article class="bub" tabindex="0" data-k="why" style="--x:26;--y:56;--s:21;--bd:12s;--bl:-3s"><h3>Why it matters</h3><p>Financial work is often fragmented. Runo reduces complexity and supports faster decisions.</p></article>
+  </div>
+</div>
+</section>

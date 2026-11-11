@@ -1,0 +1,364 @@
+<section class="page is-active" id="p-brand-kit" aria-label="Brand kit">
+<style>
+#p-brand-kit{--gap:clamp(12px,1.3vw,24px)}
+#p-brand-kit .bk-hero{padding-top:clamp(40px,6vw,88px);padding-bottom:clamp(20px,2.4vw,32px);display:grid;gap:14px}
+#p-brand-kit .bk-nav{position:sticky;top:12px;z-index:40;display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;padding:6px;width:fit-content;max-width:100%;border-radius:22px;background:rgba(250,250,250,.86);backdrop-filter:blur(12px);box-shadow:0 0 0 1px var(--line)}
+#p-brand-kit .bk-nav button{height:34px;padding:0 14px;border-radius:999px;font-size:13px;color:var(--ink-2);transition:background .25s,color .25s}
+#p-brand-kit .bk-nav button:hover{background:#fff}
+#p-brand-kit .bk-nav button[aria-current="true"]{background:#000;color:#fff}
+#p-brand-kit .bk-sec{padding-block:clamp(44px,6vw,92px)}
+#p-brand-kit .bk-hd{display:grid;gap:12px;margin-bottom:clamp(24px,3vw,44px);max-width:860px}
+#p-brand-kit .bk-panel{background:#fff;border-radius:var(--r-card);padding:clamp(18px,2.2vw,30px);position:relative;min-width:0}
+#p-brand-kit .bk-lab{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3);margin-bottom:16px;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+#p-brand-kit .bk-code{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--ink-3);text-transform:none;letter-spacing:0}
+#p-brand-kit .bk-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+#p-brand-kit .bk-stage{border-radius:20px;padding:clamp(16px,2vw,28px);display:flex;flex-wrap:wrap;gap:12px;align-items:center;min-height:96px}
+/* ---------- 1. board ---------- */
+#p-brand-kit .bk-board{container-type:inline-size;display:grid;gap:var(--gap)}
+#p-brand-kit .bk-top{display:grid;grid-template-columns:364fr 562fr 858fr;gap:var(--gap);aspect-ratio:1832/541}
+#p-brand-kit .bk-bot{display:grid;grid-template-columns:555fr 1252fr;gap:var(--gap);aspect-ratio:1832/468}
+#p-brand-kit .bk-col{display:flex;flex-direction:column;gap:var(--gap);min-height:0;min-width:0}
+#p-brand-kit .bk-tile{border-radius:var(--r-card);overflow:hidden;position:relative;min-height:0;min-width:0}
+#p-brand-kit .bk-ramp{flex:335;display:flex;flex-direction:column}
+#p-brand-kit .bk-band{flex:1 1 0;display:flex;align-items:center;padding:0 18px;font-size:12px;color:#0B0B0C;text-align:left;transition:flex .5s var(--ease);opacity:1}
+#p-brand-kit .bk-band span{opacity:0;transform:translateX(-6px);transition:opacity .3s,transform .5s var(--ease);white-space:nowrap}
+#p-brand-kit .bk-band:hover,#p-brand-kit .bk-band:focus-visible{flex:2.4}
+#p-brand-kit .bk-band:hover span,#p-brand-kit .bk-band:focus-visible span{opacity:1;transform:none}
+#p-brand-kit .bk-band:focus-visible{outline-offset:-3px}
+#p-brand-kit .bk-try{flex:182;display:grid;place-items:center;background:#E8EEF8}
+#p-brand-kit .bk-steel{flex:206;display:block;width:100%;text-align:left;transition:filter .4s}
+#p-brand-kit .bk-steel:hover{filter:saturate(1.15) brightness(1.03)}
+#p-brand-kit .bk-steel span{position:absolute;left:20px;bottom:16px;font-size:12px;color:#0B0B0C;background:rgba(255,255,255,.7);border-radius:999px;padding:4px 10px;opacity:0;transition:opacity .3s}
+#p-brand-kit .bk-steel:hover span,#p-brand-kit .bk-steel:focus-visible span{opacity:1}
+#p-brand-kit .bk-type{flex:311;background:#F3F2EE;padding:clamp(14px,2.2cqw,40px) clamp(14px,2.4cqw,44px);display:flex;flex-direction:column;justify-content:space-between}
+#p-brand-kit .bk-type .t1{display:flex;justify-content:space-between;gap:12px;font-size:clamp(12px,1.15cqw,21px);line-height:1.25}
+#p-brand-kit .bk-type .t1 b{font-weight:400;color:#5E6470;text-transform:uppercase} /* a11y: --ink-3 is 4.3:1 on this sand tile; 5.3:1 here */
+#p-brand-kit .bk-type .t1 div{text-align:right;color:var(--ink);display:grid;justify-items:end}
+#p-brand-kit .bk-type .t1 div button{display:block;font-size:inherit;line-height:inherit;transition:font-weight .3s}
+#p-brand-kit .bk-type .t1 div button{text-decoration:underline;text-decoration-color:transparent;text-underline-offset:.2em;text-decoration-thickness:1px;transition:text-decoration-color .3s}
+#p-brand-kit .bk-type .t1 div button:hover{text-decoration-color:currentColor} /* reference sets both weights in Regular; the specimen shows the active weight */
+#p-brand-kit .bk-type .big{font-size:clamp(36px,3.3cqw,62px);letter-spacing:-.03em;line-height:1;transition:font-weight .4s}
+#p-brand-kit .bk-type.med .big{font-weight:500}
+#p-brand-kit .bk-spec{background:var(--blue);display:grid;place-items:center;text-align:center;color:#fff;font-size:clamp(30px,5.9cqw,108px);line-height:1.08;letter-spacing:-.03em;cursor:pointer;padding:8px;width:100%}
+#p-brand-kit .bk-spec span{display:block;transition:font-weight .4s,letter-spacing .6s var(--ease)}
+#p-brand-kit .bk-spec.med span{font-weight:500}
+#p-brand-kit .bk-spec:hover span{letter-spacing:-.01em}
+#p-brand-kit .bk-mist{display:grid;place-items:center}
+#p-brand-kit .bk-mist .appicon{width:34.5%;background:#fff;transition:transform .6s var(--ease);box-shadow:0 30px 60px -30px rgba(40,60,90,.4)}
+#p-brand-kit .bk-mist:hover .appicon{transform:scale(1.05) rotate(-3deg)}
+#p-brand-kit .bk-strip{display:flex;border-radius:var(--r-card);overflow:hidden;min-width:0}
+#p-brand-kit .bk-sw{flex:1 1 0;min-width:0;background:var(--c);color:var(--t);display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;padding:clamp(14px,2cqw,36px) 0 clamp(12px,1.6cqw,30px) clamp(10px,1.8cqw,34px);
+  transition:flex .7s var(--ease);position:relative;text-align:left}
+#p-brand-kit .bk-strip:hover .bk-sw:hover,#p-brand-kit .bk-sw:focus-visible{flex:2.8}
+#p-brand-kit .bk-sw:focus-visible{outline-offset:-4px;outline-color:var(--accent-ink)}
+#p-brand-kit .bk-sw .n,#p-brand-kit .bk-sw .h{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}
+#p-brand-kit .bk-sw .n{font-size:clamp(13px,1.4cqw,26px);line-height:1}
+#p-brand-kit .bk-sw .h{font-size:clamp(11px,.8cqw,14px);letter-spacing:0;opacity:.8}
+#p-brand-kit .bk-sw .cp{position:absolute;right:12px;top:14px;font-size:11px;writing-mode:horizontal-tb;opacity:0;transition:opacity .3s}
+#p-brand-kit .bk-sw:hover .cp,#p-brand-kit .bk-sw:focus-visible .cp{opacity:.85}
+@container (max-width:760px){
+  #p-brand-kit .bk-top{grid-template-columns:1fr;aspect-ratio:auto}
+  #p-brand-kit .bk-ramp{flex:none;height:260px}#p-brand-kit .bk-try{flex:none;height:150px}
+  #p-brand-kit .bk-steel{flex:none;height:150px}#p-brand-kit .bk-type{flex:none;height:230px}
+  #p-brand-kit .bk-type .t1{font-size:13px}#p-brand-kit .bk-type .big{font-size:40px}
+  #p-brand-kit .bk-spec{font-size:11.5cqw;min-height:300px}
+  #p-brand-kit .bk-bot{grid-template-columns:1fr;aspect-ratio:auto}
+  #p-brand-kit .bk-mist{height:240px}#p-brand-kit .bk-strip{height:400px}
+  #p-brand-kit .bk-sw .n{font-size:14px}#p-brand-kit .bk-sw .h{font-size:11px}
+}
+/* ---------- 2. colour ---------- */
+#p-brand-kit .bk-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:var(--gap)}
+#p-brand-kit .bk-cc{background:#fff;border-radius:var(--r-card);overflow:hidden;display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s}
+#p-brand-kit .bk-cc:hover{transform:translateY(-4px);box-shadow:0 24px 50px -28px rgba(30,50,80,.35)}
+#p-brand-kit .bk-cc .sw{height:150px;background:var(--c);display:flex;align-items:flex-end;gap:8px;padding:14px;box-shadow:inset 0 -1px 0 var(--line-2)}
+#p-brand-kit .bk-cc .aa{font-size:22px;line-height:1;height:38px;padding:0 12px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.0)}
+#p-brand-kit .bk-cc .aa small{font-size:11px;color:inherit;opacity:.9}
+#p-brand-kit .bk-cc .bd{padding:16px 18px 18px;display:grid;gap:6px}
+#p-brand-kit .bk-cc h3{font-size:19px;letter-spacing:-.02em;font-weight:500}
+#p-brand-kit .bk-hex{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--ink);width:fit-content;padding:4px 10px 4px 0;border-radius:8px;transition:color .2s}
+#p-brand-kit .bk-hex:hover{color:var(--accent-ink)}
+#p-brand-kit .bk-cc .meta{font-size:13px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 12px}
+#p-brand-kit .bk-cr{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+#p-brand-kit .bk-cr span{font-size:12px;padding:3px 9px;border-radius:999px;background:var(--subtle);color:var(--ink-2)}
+#p-brand-kit .bk-cr b{font-weight:500;color:var(--ink)}
+#p-brand-kit .bk-grads{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:var(--gap);margin-top:var(--gap)}
+#p-brand-kit .bk-gp{background:#fff;border-radius:var(--r-card);padding:14px 14px 18px;display:grid;gap:12px;align-content:start}
+#p-brand-kit .bk-gp button.pn{display:block;width:100%;border-radius:18px;overflow:hidden;aspect-ratio:400/210;transition:transform .6s var(--ease)}
+#p-brand-kit .bk-gp button.pn:hover{transform:scale(1.015)}
+#p-brand-kit .bk-gp svg{width:100%;height:100%}
+#p-brand-kit .bk-gp h3{font-size:18px;font-weight:500;padding:0 6px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+#p-brand-kit .bk-stops{display:flex;flex-wrap:wrap;gap:6px;padding:0 6px}
+#p-brand-kit .bk-stop{display:inline-flex;align-items:center;gap:7px;height:28px;padding:0 10px 0 6px;border-radius:999px;font-size:12px;color:var(--ink-2);box-shadow:inset 0 0 0 1px var(--line);transition:background .2s}
+#p-brand-kit .bk-stop:hover{background:var(--subtle)}
+#p-brand-kit .bk-stop i{width:16px;height:16px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+/* ---------- 3. type ---------- */
+#p-brand-kit .bk-spc{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+#p-brand-kit .bk-spc .big{font-size:clamp(88px,12vw,200px);line-height:.95;letter-spacing:-.04em}
+#p-brand-kit .bk-spc .glyph{margin-top:18px;font-size:clamp(15px,1.4vw,20px);line-height:1.5;color:var(--ink-2);word-break:break-all}
+#p-brand-kit .bk-spc .med{font-weight:500}
+#p-brand-kit .bk-scale{margin-top:var(--gap);background:#fff;border-radius:var(--r-card);padding:6px clamp(18px,2.2vw,30px)}
+#p-brand-kit .bk-sr{display:grid;grid-template-columns:200px 1fr;gap:12px 32px;padding:22px 0;border-top:1px solid var(--line);align-items:center;text-align:left;width:100%;transition:padding .45s var(--ease)}
+#p-brand-kit .bk-sr:first-child{border-top:0}
+#p-brand-kit .bk-sr:hover{padding-left:10px}
+#p-brand-kit .bk-sr .m{display:grid;gap:3px;font-size:12px;color:var(--ink-3)}
+#p-brand-kit .bk-sr .m b{font-size:14px;font-weight:500;color:var(--ink)}
+#p-brand-kit .bk-sr .s{min-width:0;overflow-wrap:anywhere}
+#p-brand-kit .bk-test{margin-top:var(--gap);background:#fff;border-radius:var(--r-card);padding:clamp(18px,2.2vw,30px)}
+#p-brand-kit .bk-tctl{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;margin-bottom:18px;font-size:13px;color:var(--ink-2)}
+#p-brand-kit .bk-tctl label{display:flex;align-items:center;gap:10px}
+#p-brand-kit .bk-tctl input[type=range]{width:min(200px,40vw);accent-color:#2F6FB8}
+#p-brand-kit .bk-tctl output{font-variant-numeric:tabular-nums;min-width:48px}
+#p-brand-kit .bk-tarea{min-height:140px;border-radius:20px;background:#FAFAFA;padding:20px 24px;outline-offset:2px;line-height:1.1;letter-spacing:-.03em;overflow-wrap:anywhere;box-shadow:inset 0 0 0 1px var(--line)}
+#p-brand-kit .bk-tarea:focus-visible{box-shadow:inset 0 0 0 1.5px var(--accent-ink)}
+#p-brand-kit .bk-grp{display:inline-grid;grid-auto-flow:column;padding:3px;border-radius:999px;background:var(--subtle)}
+#p-brand-kit .bk-grp button{height:30px;padding:0 14px;border-radius:999px;font-size:13px;color:var(--ink-2);transition:background .25s,color .25s}
+#p-brand-kit .bk-grp button[aria-pressed="true"]{background:#fff;color:#000;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+@media(max-width:900px){#p-brand-kit .bk-spc{grid-template-columns:1fr}#p-brand-kit .bk-sr{grid-template-columns:1fr}}
+/* ---------- 4. components ---------- */
+#p-brand-kit .bk-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:var(--gap)}
+#p-brand-kit .bk-g .wide{grid-column:1/-1}
+#p-brand-kit .bk-chipneg{color:#8A4B16;box-shadow:inset 0 0 0 1px var(--amber);background:#fff}
+#p-brand-kit .chip.up.bk-chip{color:var(--teal-deep)} /* a11y: base .chip.up #0E8F76 is 4.0:1 on white */
+#p-brand-kit .bk-chip{height:26px;font-size:12px;padding:0 10px;transition:transform .3s var(--ease)}
+#p-brand-kit .bk-chip:hover{transform:translateY(-2px)}
+#p-brand-kit .bk-pile{display:block;position:relative;width:100%;aspect-ratio:904/440;border-radius:20px;background:#fff;container-type:inline-size;overflow:hidden;text-align:left;box-shadow:inset 0 0 0 1px var(--line-2)}
+#p-brand-kit .bk-pile .tag{position:absolute;left:var(--x);top:var(--y);height:2.3em;padding:0 1.15em;font-size:clamp(10px,2.1cqw,19px);white-space:nowrap;border-radius:.3em;
+  transform:translate(-50%,-50%) rotate(var(--r));box-shadow:0 6px 16px -10px rgba(30,50,80,.3)}
+#p-brand-kit .bk-pile.drop .tag{animation:brand-kit-drop 1.1s var(--ease) both;animation-delay:calc(var(--i)*90ms)}
+@keyframes brand-kit-drop{0%{opacity:0;transform:translate(-50%,-420%) rotate(calc(var(--r)*-3))}35%{opacity:1}100%{opacity:1;transform:translate(-50%,-50%) rotate(var(--r))}}
+#p-brand-kit .bk-seg{position:relative;display:grid;grid-template-columns:1fr 1fr;padding:3px;border-radius:999px;background:var(--subtle);width:240px;max-width:100%}
+#p-brand-kit .bk-thumb{position:absolute;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);border-radius:999px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.12);transform:translateX(calc(var(--i,0)*100%));transition:transform .5s var(--ease)}
+#p-brand-kit .bk-seg button{position:relative;height:32px;font-size:13px;color:var(--ink-2);transition:color .25s}
+#p-brand-kit .bk-seg button[aria-pressed="true"]{color:#000}
+#p-brand-kit .bk-tabs{display:flex;gap:clamp(14px,2vw,28px);overflow-x:auto;border-bottom:1px solid var(--line);position:relative;scrollbar-width:none}
+#p-brand-kit .bk-tabs button{padding:10px 0 12px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap;position:relative;transition:color .25s}
+#p-brand-kit .bk-tabs button::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#000;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+#p-brand-kit .bk-tabs button:hover{color:#000}
+#p-brand-kit .bk-tabs button[aria-selected="true"]{color:#000}
+#p-brand-kit .bk-tabs button[aria-selected="true"]::after{transform:scaleX(1)}
+#p-brand-kit .bk-tp{padding-top:16px;min-height:96px}
+#p-brand-kit .bk-tp p{font-size:13px;color:var(--ink-3);margin-top:8px}
+#p-brand-kit .bk-swt{width:44px;height:26px;border-radius:999px;background:#CDD2D9;position:relative;transition:background .3s;flex:none}
+#p-brand-kit .bk-swt::after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .45s var(--ease)}
+#p-brand-kit .bk-swt[aria-checked="true"]{background:#000}
+#p-brand-kit .bk-swt[aria-checked="true"]::after{transform:translateX(18px)}
+#p-brand-kit .bk-prompt{border-radius:20px;padding:clamp(20px,3vw,40px);display:grid;gap:18px;justify-items:center;text-align:center}
+#p-brand-kit .bk-pbox{width:min(100%,520px);background:#fff;border-radius:16px;padding:16px 18px;display:grid;gap:14px;box-shadow:0 20px 40px -28px rgba(40,70,110,.35);text-align:left}
+#p-brand-kit .bk-prow{display:flex;gap:12px;align-items:center}
+#p-brand-kit .bk-pin{flex:1;min-width:0;border:0;outline:0;background:none;font:inherit;font-size:16px;color:var(--ink)}
+#p-brand-kit .bk-pbox:focus-within{box-shadow:0 20px 40px -28px rgba(40,70,110,.35),0 0 0 2px var(--accent-ink)}
+#p-brand-kit .bk-file{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border-radius:999px;background:var(--subtle);font-size:12px;color:var(--ink-2)}
+#p-brand-kit .bk-file .icon{color:var(--accent-ink);width:14px;height:14px}
+#p-brand-kit .bk-p2{display:flex;justify-content:space-between;align-items:center}
+#p-brand-kit .bk-pbox .icon-btn{width:30px;height:30px;background:var(--subtle);box-shadow:none}
+#p-brand-kit .bk-stat{display:inline-flex;align-items:center;gap:9px;height:36px;padding:0 16px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font-size:14px;color:var(--teal-deep)}
+#p-brand-kit .bk-dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(25,194,160,.5);animation:brand-kit-ping 2.4s var(--ease) infinite}
+@keyframes brand-kit-ping{0%{box-shadow:0 0 0 0 rgba(25,194,160,.55)}70%,100%{box-shadow:0 0 0 9px rgba(25,194,160,0)}}
+/* ---------- 5. data viz ---------- */
+#p-brand-kit .bk-dv{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:var(--gap)}
+#p-brand-kit .bk-dv .bk-panel{cursor:pointer;text-align:left;display:block;width:100%}
+#p-brand-kit .bk-dv .bk-panel.dark{background:#000;color:#fff}
+#p-brand-kit .bk-dv .bk-panel.dark .bk-lab,#p-brand-kit .bk-dv .bk-panel.dark .bk-code{color:#B9C0CA}
+#p-brand-kit .bk-fig{height:110px;display:grid;align-items:end}
+#p-brand-kit .bk-fig svg{width:100%}
+#p-brand-kit .bk-donut circle.seg{transform:rotate(-90deg);transform-origin:50px 50px;stroke-dashoffset:var(--len)}
+#p-brand-kit .bk-donut.in circle.seg{animation:brand-kit-dash 1.4s var(--ease) both}
+@keyframes brand-kit-dash{from{stroke-dasharray:0 var(--circ)}}
+#p-brand-kit .bk-blk rect{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0)}
+#p-brand-kit .bk-blk.in rect{animation:brand-kit-up .9s var(--ease) forwards;animation-delay:calc(var(--i)*90ms)}
+@keyframes brand-kit-up{to{transform:scaleY(1)}}
+#p-brand-kit .bk-spark .ln{stroke-dasharray:1;stroke-dashoffset:1}
+#p-brand-kit .bk-spark.in .ln{animation:brand-kit-draw 1.6s var(--ease) forwards}
+#p-brand-kit .bk-spark .ar{opacity:0}
+#p-brand-kit .bk-spark.in .ar{animation:brand-kit-fade 1s .8s var(--ease) forwards}
+#p-brand-kit .bk-spark .pt{opacity:0}
+#p-brand-kit .bk-spark.in .pt{animation:brand-kit-fade .5s 1.5s forwards}
+@keyframes brand-kit-draw{to{stroke-dashoffset:0}}
+@keyframes brand-kit-fade{to{opacity:1}}
+#p-brand-kit .bk-big{font-size:clamp(28px,3vw,40px);letter-spacing:-.03em;line-height:1}
+/* ---------- 6. icons ---------- */
+#p-brand-kit .bk-ic{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:12px}
+#p-brand-kit .bk-ic button{display:grid;justify-items:center;gap:10px;padding:20px 8px 14px;border-radius:20px;background:#fff;font-size:12px;color:var(--ink-3);transition:background .25s,color .25s,transform .4s var(--ease)}
+#p-brand-kit .bk-ic button:hover{background:#000;color:#fff;transform:translateY(-3px)}
+#p-brand-kit .bk-ic .icon{width:calc(var(--s,24)*1px);height:calc(var(--s,24)*1px);transition:width .3s var(--ease),height .3s var(--ease)}
+#p-brand-kit .bk-ic .mark{width:calc(var(--s,24)*1px);height:calc(var(--s,24)*1px)}
+/* ---------- 7. tokens ---------- */
+#p-brand-kit .bk-tk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:var(--gap)}
+#p-brand-kit .bk-rad{display:flex;flex-wrap:wrap;gap:14px}
+#p-brand-kit .bk-rad button{display:grid;gap:8px;justify-items:center;font-size:12px;color:var(--ink-3)}
+#p-brand-kit .bk-rad i{width:76px;height:76px;background:var(--b6);border:1.5px solid var(--b3);transition:border-radius .6s var(--ease),transform .4s var(--ease)}
+#p-brand-kit .bk-rad button:hover i{transform:scale(1.06)}
+#p-brand-kit .bk-sp{display:grid;gap:9px}
+#p-brand-kit .bk-sp button{display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:center;font-size:12px;color:var(--ink-3);text-align:left}
+#p-brand-kit .bk-sp i{height:10px;background:var(--b3);border-radius:2px;width:calc(var(--w)*1px);transition:background .25s}
+#p-brand-kit .bk-sp button:hover i{background:var(--accent-ink)}
+#p-brand-kit .bk-el{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+#p-brand-kit .bk-el button{height:92px;border-radius:16px;background:#fff;display:grid;place-items:center;font-size:12px;color:var(--ink-3);transition:transform .45s var(--ease),box-shadow .45s;box-shadow:var(--sh)}
+#p-brand-kit .bk-el button:hover{transform:translateY(-3px)}
+/* ---------- 8. motion ---------- */
+#p-brand-kit .bk-mo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--gap)}
+#p-brand-kit .bk-mo svg{width:100%;height:auto;max-height:420px;overflow:visible}
+#p-brand-kit .bk-trk{display:block;width:100%;height:44px;border-radius:999px;background:var(--subtle);position:relative;margin-top:12px}
+#p-brand-kit .bk-trk i{position:absolute;left:6px;top:6px;width:32px;height:32px;border-radius:50%;background:#000;transition:transform var(--dur,1.2s) var(--tf,var(--ease))}
+#p-brand-kit .bk-trk.go i{transform:translateX(calc(var(--run,600px)))}
+#p-brand-kit .bk-toks{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+#p-brand-kit .bk-toks button{height:30px;padding:0 12px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);font-size:12px;color:var(--ink-2);transition:background .2s}
+#p-brand-kit .bk-toks button:hover{background:var(--subtle)}
+@media(max-width:900px){#p-brand-kit .bk-mo{grid-template-columns:1fr}}
+</style>
+
+<header class="wrap bk-hero">
+  <p class="eyebrow blue" data-reveal="fade">Visual design</p>
+  <h1 class="display" data-reveal>Brand kit</h1>
+  <p class="lead muted" data-reveal data-delay="120" style="max-width:640px">A new standard for financial control, meet Runo.</p>
+  <nav class="bk-nav" aria-label="Brand kit sections" id="brand-kit-nav" data-reveal data-delay="200"></nav>
+</header>
+
+<!-- 1 · THE BOARD (reproduction of the brand board) -->
+<div class="wrap" id="brand-kit-s-board" style="padding-top:8px">
+  <div class="bk-board" data-reveal="scale">
+    <div class="bk-top">
+      <div class="bk-col">
+        <div class="bk-tile bk-ramp" role="group" aria-label="Soft Blue ramp, nine steps. Activate a band to copy its hex.">
+          <button type="button" class="bk-band" style="background:var(--b1)" data-hex="#5FA0E3"><span>--b1 · #5FA0E3</span></button>
+          <button type="button" class="bk-band" style="background:var(--b2)" data-hex="#73ACE7"><span>--b2 · #73ACE7</span></button>
+          <button type="button" class="bk-band" style="background:var(--b3)" data-hex="#85B7EA"><span>--b3 · #85B7EA</span></button>
+          <button type="button" class="bk-band" style="background:var(--b4)" data-hex="#97C2EE"><span>--b4 · #97C2EE</span></button>
+          <button type="button" class="bk-band" style="background:var(--b5)" data-hex="#A8CCF1"><span>--b5 · #A8CCF1</span></button>
+          <button type="button" class="bk-band" style="background:var(--b6)" data-hex="#BAD5F3"><span>--b6 · #BAD5F3</span></button>
+          <button type="button" class="bk-band" style="background:var(--b7)" data-hex="#CDE0F6"><span>--b7 · #CDE0F6</span></button>
+          <button type="button" class="bk-band" style="background:var(--b8)" data-hex="#DFEBF9"><span>--b8 · #DFEBF9</span></button>
+          <button type="button" class="bk-band" style="background:var(--b9)" data-hex="#F0F5FC"><span>--b9 · #F0F5FC</span></button>
+        </div>
+        <div class="bk-tile bk-try">
+          <a class="try" href="/lp-home"><span class="try-pill">Try Runo</span><span class="try-dot"><svg class="icon" aria-hidden="true" viewBox="0 0 16 16"><use href="#i-arrow-ne"/></svg></span></a>
+        </div>
+      </div>
+      <div class="bk-col">
+        <button type="button" class="bk-tile bk-steel steel-grad" id="brand-kit-steel" aria-label="Steel gradient. Activate to copy the CSS."><span>Copy gradient</span></button>
+        <div class="bk-tile bk-type" id="brand-kit-type">
+          <div class="t1"><b>Main typeface</b><div role="group" aria-label="Weight"><button type="button" class="on" aria-pressed="true">Regular</button><button type="button" aria-pressed="false">Medium</button></div></div>
+          <div class="big">Aeonik</div>
+        </div>
+      </div>
+      <button type="button" class="bk-tile bk-spec" id="brand-kit-spec" aria-label="Soft Blue type specimen. Activate to switch between Regular and Medium.">
+        <span>AaBbCc<br>01234567<br>{(!@#$?&amp;)}</span>
+      </button>
+    </div>
+    <div class="bk-bot">
+      <div class="bk-tile bk-mist mist" role="img" aria-label="Runo app icon on the mist gradient">
+        <div class="appicon"><svg class="mark" viewBox="0 0 362 360" aria-hidden="true"><use href="#runo-mark"/></svg></div>
+      </div>
+      <div class="bk-strip" role="group" aria-label="Brand palette. Activate a column to copy its hex.">
+        <button type="button" class="bk-sw" style="--c:#A7B8CD;--t:#0B0B0C" data-hex="#A7B8CD"><span class="n">Steel Layer</span><span class="h">#A7B8CD</span><span class="cp">Copy</span></button>
+        <button type="button" class="bk-sw" style="--c:#BAD5F3;--t:#0B0B0C" data-hex="#BAD5F3"><span class="n">Soft Blue</span><span class="h">#BAD5F3</span><span class="cp">Copy</span></button>
+        <button type="button" class="bk-sw" style="--c:#CEF5ED;--t:#0B0B0C" data-hex="#CEF5ED"><span class="n">Mint Layer</span><span class="h">#CEF5ED</span><span class="cp">Copy</span></button>
+        <button type="button" class="bk-sw" style="--c:#F6FFD8;--t:#0B0B0C" data-hex="#F6FFD8"><span class="n">Signal Lime</span><span class="h">#F6FFD8</span><span class="cp">Copy</span></button>
+        <button type="button" class="bk-sw" style="--c:#F4F2EC;--t:#0B0B0C" data-hex="#F4F2EC"><span class="n">Surface Sand</span><span class="h">#F4F2EC</span><span class="cp">Copy</span></button>
+        <button type="button" class="bk-sw" style="--c:#FFFFFF;--t:#0B0B0C" data-hex="#FFFFFF"><span class="n">Base White</span><span class="h">#FFFFFF</span><span class="cp">Copy</span></button>
+        <button type="button" class="bk-sw" style="--c:#F2F3F5;--t:#0B0B0C" data-hex="#F2F3F5"><span class="n">Text Subtle</span><span class="h">#F2F3F5</span><span class="cp">Copy</span></button>
+        <button type="button" class="bk-sw" style="--c:#000000;--t:#FFFFFF" data-hex="#000000"><span class="n">Deep Black</span><span class="h">#000000</span><span class="cp">Copy</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2 · COLOUR -->
+<div class="wrap bk-sec" id="brand-kit-s-colour">
+  <div class="bk-hd" data-reveal><p class="eyebrow">Colour</p><h2 class="h1">Eight published colours</h2><p class="lead muted">Contrast ratios are computed live against Deep Black and Base White. Click a hex to copy it.</p></div>
+  <div class="bk-cards" id="brand-kit-cards"></div>
+  <div class="bk-hd" style="margin-top:clamp(40px,5vw,72px)" data-reveal><p class="eyebrow">Gradients</p><h2 class="h2">Sky, steel, mist and the footer fade</h2></div>
+  <div class="bk-grads" id="brand-kit-grads"></div>
+</div>
+
+<!-- 3 · TYPE -->
+<div class="wrap bk-sec" id="brand-kit-s-type">
+  <div class="bk-hd" data-reveal><p class="eyebrow">Typography</p><h2 class="h1">Aeonik, Regular and Medium</h2><p class="lead muted">Headlines are Regular, tight and sentence case. Medium is kept for labels and emphasis.</p></div>
+  <div class="bk-spc">
+    <div class="bk-panel" data-reveal><div class="bk-lab"><span>Regular</span><span class="bk-code">400</span></div><div class="big">Aa</div><p class="glyph">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 {(!@#$?&amp;)}</p></div>
+    <div class="bk-panel" data-reveal data-delay="120"><div class="bk-lab"><span>Medium</span><span class="bk-code">500</span></div><div class="big med">Aa</div><p class="glyph med">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 {(!@#$?&amp;)}</p></div>
+  </div>
+  <div class="bk-scale" id="brand-kit-scale" role="group" aria-label="Type scale"></div>
+  <div class="bk-test" data-reveal>
+    <div class="bk-lab"><span>Live tester</span><span class="bk-code" id="brand-kit-tread"></span></div>
+    <div class="bk-tctl">
+      <label>Size <input type="range" id="brand-kit-tsize" min="12" max="160" value="64" aria-label="Font size"><output id="brand-kit-tout">64px</output></label>
+      <label>Tracking <input type="range" id="brand-kit-ttrk" min="-60" max="40" value="-30" aria-label="Letter spacing"><output id="brand-kit-tkout">-0.03em</output></label>
+      <div class="bk-grp" role="group" aria-label="Weight"><button type="button" aria-pressed="true" data-w="400">Regular</button><button type="button" aria-pressed="false" data-w="500">Medium</button></div>
+    </div>
+    <div class="bk-tarea" id="brand-kit-tarea" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Type tester, editable text" spellcheck="false">Financial control starts with a single setup.</div>
+  </div>
+</div>
+
+<!-- 4 · COMPONENTS -->
+<div class="wrap bk-sec" id="brand-kit-s-components">
+  <div class="bk-hd" data-reveal><p class="eyebrow">Components</p><h2 class="h1">The parts the product and the site are made of</h2></div>
+  <div class="bk-g">
+    <div class="bk-panel" data-reveal><div class="bk-lab"><span>Buttons · product</span><span class="bk-code">.btn.btn-steel · var(--steel-btn)</span></div>
+      <div class="bk-stage" style="background:var(--page)"><button type="button" class="btn btn-steel">Transfer funds</button><button type="button" class="btn btn-steel">Top Up</button><button type="button" class="btn btn-steel">Review all activity</button></div>
+      <p class="small" style="margin-top:12px">Darkened so white labels reach 4.5:1. Original reference colour #9DB4D0.</p></div>
+    <div class="bk-panel" data-reveal data-delay="100"><div class="bk-lab"><span>Buttons · marketing</span><span class="bk-code">.btn-pill · .btn-dark · .try</span></div>
+      <div class="bk-stage sky"><button type="button" class="btn btn-pill">Get started</button><button type="button" class="btn btn-dark">Create account</button><a class="try" href="/lp-home"><span class="try-pill">Try Runo</span><span class="try-dot"><svg class="icon" aria-hidden="true" viewBox="0 0 16 16"><use href="#i-arrow-ne"/></svg></span></a></div></div>
+    <div class="bk-panel" data-reveal><div class="bk-lab"><span>Icon buttons</span><span class="bk-code">.icon-btn</span></div>
+      <div class="bk-stage" style="background:var(--page)" id="brand-kit-iconbtns"></div></div>
+    <div class="bk-panel" data-reveal data-delay="100"><div class="bk-lab"><span>Chips</span><span class="bk-code">.chip · .chip.up</span></div>
+      <div class="bk-stage" style="background:var(--page)"><span class="chip up bk-chip">+2.4%</span><span class="chip up bk-chip">+3.2%</span><span class="chip bk-chip bk-chipneg">-8%</span></div></div>
+    <div class="bk-panel wide" data-reveal><div class="bk-lab"><span>Feature tags · drop and settle</span><span class="bk-code">.tag · activate to drop again</span></div>
+      <button type="button" class="bk-pile" id="brand-kit-pile" aria-label="Feature tags: Cash Visibility, Financial Insights, AI Financial Copilot, Expense Control, Multi-Account Sync, Runway Forecasting, Smart Payments, Payments, Automated Workflows, Decision Layer. Activate to drop them again."></button></div>
+    <div class="bk-panel" data-reveal><div class="bk-lab"><span>Segmented control</span><span class="bk-code">Forecast / Actual</span></div>
+      <div class="bk-row" style="gap:22px;align-items:flex-end"><div class="bk-seg" id="brand-kit-seg" role="group" aria-label="Forecast or Actual"><span class="bk-thumb" aria-hidden="true"></span><button type="button" aria-pressed="true">Forecast</button><button type="button" aria-pressed="false">Actual</button></div>
+      <div id="brand-kit-segbars" style="flex:1;min-width:140px" class="bk-fig"></div></div></div>
+    <div class="bk-panel" data-reveal data-delay="100"><div class="bk-lab"><span>Tabs</span><span class="bk-code">role="tablist"</span></div>
+      <div class="bk-tabs" id="brand-kit-tabs" role="tablist" aria-label="Payment methods"></div><div class="bk-tp" id="brand-kit-tp" role="tabpanel" tabindex="0"></div></div>
+    <div class="bk-panel" data-reveal><div class="bk-lab"><span>Toggle</span><span class="bk-code">role="switch"</span></div>
+      <div class="bk-stage" style="background:var(--page)"><button type="button" class="bk-swt" id="brand-kit-swt" role="switch" aria-checked="true" aria-label="Save as workflow"></button><span>Save as workflow</span></div></div>
+    <div class="bk-panel" data-reveal data-delay="100"><div class="bk-lab"><span>Status</span><span class="bk-code">teal dot</span></div>
+      <div class="bk-stage" style="background:var(--page)"><span class="bk-stat"><i class="bk-dot"></i>Optimal</span><span class="bk-stat"><i class="bk-dot"></i>Healthy</span></div></div>
+    <div class="bk-panel wide" data-reveal><div class="bk-lab"><span>Prompt input</span><span class="bk-code">Copilot</span></div>
+      <div class="bk-prompt sky-soft"><p class="h3">How can I assist with your finances today?</p>
+        <form class="bk-pbox" id="brand-kit-pf" autocomplete="off">
+          <div class="bk-prow"><span class="muted" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16"><use href="#i-plus"/></svg></span><input class="bk-pin" id="brand-kit-pin" aria-label="Ask Runo" value="Add this invoice to my accounts"></div>
+          <div class="bk-p2"><span class="bk-file"><svg class="icon" aria-hidden="true" viewBox="0 0 16 16"><use href="#i-clip"/></svg>Marketing_invoice_Feb.pdf</span><button type="submit" class="icon-btn" aria-label="Send"><svg class="icon" aria-hidden="true" viewBox="0 0 16 16"><use href="#i-arrow-up"/></svg></button></div>
+        </form></div></div>
+  </div>
+</div>
+
+<!-- 5 · DATA-VIZ -->
+<div class="wrap bk-sec" id="brand-kit-s-dataviz">
+  <div class="bk-hd" data-reveal><p class="eyebrow">Data visualisation</p><h2 class="h1">Hairlines first</h2><p class="lead muted">Thin vertical bars are the signature. Activate any tile to replay it.</p></div>
+  <div class="bk-dv" id="brand-kit-dv"></div>
+</div>
+
+<!-- 6 · ICONS -->
+<div class="wrap bk-sec" id="brand-kit-s-icons">
+  <div class="bk-hd" data-reveal><p class="eyebrow">Iconography</p><h2 class="h1">One 16 px grid, 1.5 px stroke</h2><p class="lead muted">Every icon in the shared sprite. Click one to copy its call.</p>
+    <label class="bk-row small" style="gap:12px">Size <input type="range" id="brand-kit-icsize" min="16" max="40" value="24" aria-label="Icon size" style="accent-color:#2F6FB8;width:200px"><output id="brand-kit-icout">24px</output></label></div>
+  <div class="bk-ic" id="brand-kit-ic"></div>
+</div>
+
+<!-- 7 · TOKENS -->
+<div class="wrap bk-sec" id="brand-kit-s-tokens">
+  <div class="bk-hd" data-reveal><p class="eyebrow">Tokens</p><h2 class="h1">Radii, spacing, elevation</h2></div>
+  <div class="bk-tk">
+    <div class="bk-panel" data-reveal><div class="bk-lab"><span>Radii</span><span class="bk-code">click to copy</span></div><div class="bk-rad" id="brand-kit-rad"></div></div>
+    <div class="bk-panel" data-reveal data-delay="100"><div class="bk-lab"><span>Spacing</span><span class="bk-code">px</span></div><div class="bk-sp" id="brand-kit-sp"></div></div>
+    <div class="bk-panel" data-reveal data-delay="200"><div class="bk-lab"><span>Elevation</span><span class="bk-code">box-shadow</span></div><div class="bk-el" id="brand-kit-el"></div></div>
+  </div>
+</div>
+
+<!-- 8 · MOTION -->
+<div class="wrap bk-sec" id="brand-kit-s-motion">
+  <div class="bk-hd" data-reveal><p class="eyebrow">Motion</p><h2 class="h1">Calm, precise, slow ease-out</h2><p class="lead muted">Nothing bounces. Reveals take 600 to 900 ms and settle.</p></div>
+  <div class="bk-mo">
+    <div class="bk-panel" data-reveal><div class="bk-lab"><span>Ease curve</span><span class="bk-code" id="brand-kit-curvelab">cubic-bezier(.22, 1, .36, 1)</span></div>
+      <svg id="brand-kit-curve" viewBox="-30 -20 360 360" role="img" aria-label="Ease curve cubic-bezier .22 1 .36 1 with a dot travelling along it"></svg>
+      <div class="bk-toks" id="brand-kit-ease" role="group" aria-label="Choose curve"></div></div>
+    <div class="bk-panel" data-reveal data-delay="100"><div class="bk-lab"><span>Duration tokens</span><span class="bk-code">activate to run</span></div>
+      <div id="brand-kit-durs"></div></div>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:48px;display:flex;gap:12px;flex-wrap:wrap">
+  <a class="btn btn-ghost" href="/logo">Logo</a><a class="btn btn-ghost" href="/social">Social media</a>
+</div>
+</section>

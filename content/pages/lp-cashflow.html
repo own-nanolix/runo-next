@@ -1,0 +1,356 @@
+<section class="page is-active" id="p-lp-cashflow" aria-label="Landing · Cash Flow">
+<style>
+#p-lp-cashflow{background:var(--page);color:var(--ink)}
+#p-lp-cashflow .w{width:100%;max-width:1310px;margin:0 auto;padding-inline:var(--pad)}
+#p-lp-cashflow .sec{padding-block:clamp(56px,8vw,120px)}
+#p-lp-cashflow .eb{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
+#p-lp-cashflow .eb b{font-weight:400;color:var(--accent-ink)}
+#p-lp-cashflow .lede{max-width:46ch;color:var(--ink-2)}
+#p-lp-cashflow button:focus-visible,#p-lp-cashflow a:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px}
+
+/* ---------- hero ---------- */
+#p-lp-cashflow .hero{position:relative;overflow:hidden;color:#fff;isolation:isolate}
+#p-lp-cashflow .arcs{position:absolute;left:50%;bottom:-8%;width:max(1500px,130%);translate:-50% 0;z-index:-1;pointer-events:none;color:#fff;opacity:.6}
+#p-lp-cashflow .arcs g{transform-origin:800px 900px;animation:lp-cashflow-spin 140s linear infinite}
+#p-lp-cashflow .arcs g.r{animation-duration:200s;animation-direction:reverse}
+@keyframes lp-cashflow-spin{to{transform:rotate(360deg)}}
+#p-lp-cashflow .hero-in{text-align:center;padding-top:clamp(28px,5vw,72px)}
+#p-lp-cashflow .hero .eb{color:#27425F;display:inline-flex;align-items:center;gap:8px}
+#p-lp-cashflow .live-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2s ease-in-out infinite}
+#p-lp-cashflow h1{font-size:clamp(38px,5.6vw,84px);line-height:1.03;letter-spacing:-.035em;font-weight:400;max-width:17ch;margin:18px auto 0;color:#fff}
+#p-lp-cashflow .bal{display:inline-flex;align-items:center;gap:14px;margin-top:clamp(20px,3vw,34px);flex-wrap:wrap;justify-content:center}
+#p-lp-cashflow .bal small{display:block;font-size:13px;color:#27425F;text-align:left}
+#p-lp-cashflow .bal .big{font-size:clamp(34px,4vw,56px);letter-spacing:-.04em;color:var(--ink);line-height:1}
+#p-lp-cashflow .try-pill{color:var(--ink)}
+#p-lp-cashflow .cta-row{display:flex;gap:14px;justify-content:center;align-items:center;margin-top:26px;flex-wrap:wrap}
+#p-lp-cashflow .dash-wrap{margin-top:clamp(36px,5vw,64px);height:clamp(300px,34vw,470px);overflow:hidden;position:relative}
+#p-lp-cashflow .dash{width:min(1180px,calc(100% - 2*var(--pad)));margin:0 auto;background:#FAFAFA;border-radius:22px 22px 0 0;box-shadow:0 -10px 80px -20px rgba(40,70,120,.35),0 0 0 1px rgba(255,255,255,.7);color:var(--ink);text-align:left;
+  animation:lp-cashflow-rise 1.5s var(--ease) .25s both;will-change:transform}
+@keyframes lp-cashflow-rise{from{transform:translateY(60%);opacity:0}to{transform:none;opacity:1}}
+#p-lp-cashflow .dtop{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 28px;border-bottom:1px solid var(--line);font-size:13px}
+#p-lp-cashflow .dbrand{display:flex;align-items:center;gap:8px}
+#p-lp-cashflow .dbrand .mark{width:20px;height:20px}
+#p-lp-cashflow .dtabs{display:flex;gap:clamp(14px,3vw,44px)}
+#p-lp-cashflow .dtabs span{padding:6px 0;position:relative;color:var(--ink-2)}
+#p-lp-cashflow .dtabs span[aria-current]{color:var(--ink)}
+#p-lp-cashflow .dtabs span[aria-current]::after{content:"";position:absolute;left:-8px;right:-8px;bottom:-17px;height:2px;background:var(--steel-btn)}
+#p-lp-cashflow .dbtn{background:var(--steel-btn);color:#fff;border-radius:4px;padding:7px 12px;font-size:12px;display:inline-flex;gap:6px;align-items:center}
+#p-lp-cashflow .kpis{display:grid;grid-template-columns:repeat(3,1fr);padding:22px 28px 18px;border-bottom:1px solid var(--line)}
+#p-lp-cashflow .kpi{padding-right:20px}
+#p-lp-cashflow .kpi+.kpi{padding-left:24px;border-left:1px solid var(--line)}
+#p-lp-cashflow .kpi small{font-size:12px;color:var(--ink-3);display:block;margin-bottom:6px}
+#p-lp-cashflow .kpi .v{font-size:clamp(24px,2.7vw,38px);letter-spacing:-.035em;display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;line-height:1}
+#p-lp-cashflow .kpi .chip{font-size:10px;height:18px;padding:0 6px}
+#p-lp-cashflow .blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:22px 28px 0}
+#p-lp-cashflow .blk small{font-size:12px;color:var(--ink-3);display:block;padding-left:8px}
+#p-lp-cashflow .blk .v{font-size:clamp(18px,1.7vw,24px);letter-spacing:-.03em;display:block;padding-left:8px;margin:2px 0 10px}
+#p-lp-cashflow .blk .ch{border-left:1.5px solid #4FA3F2}
+#p-lp-cashflow .blk:nth-child(3) .ch{border-color:#CFE66A}
+#p-lp-cashflow .dtabs2{display:flex;gap:22px;font-size:11px;text-transform:uppercase;color:var(--ink-3);padding:16px 28px;letter-spacing:.02em}
+#p-lp-cashflow .dtabs2 span:first-child{color:var(--ink);box-shadow:0 12px 0 -10px #4FA3F2}
+#p-lp-cashflow .upd{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--ink-3);margin-left:auto}
+@media(max-width:760px){#p-lp-cashflow .dtabs{display:none}#p-lp-cashflow .kpis,#p-lp-cashflow .blocks{grid-template-columns:1fr}#p-lp-cashflow .kpi+.kpi{border-left:0;padding-left:0;margin-top:14px}#p-lp-cashflow .dash-wrap{height:520px}#p-lp-cashflow .dtabs2{display:none}}
+
+/* ---------- runway ---------- */
+#p-lp-cashflow .rw{background:#F0EFEC;border-radius:var(--r-card);padding:clamp(22px,3.4vw,48px)}
+#p-lp-cashflow .rw-top{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+#p-lp-cashflow .rw-big{font-size:clamp(44px,6vw,92px);line-height:1;letter-spacing:-.04em;margin-top:8px}
+#p-lp-cashflow .rw-ctl{display:flex;align-items:center;gap:10px}
+#p-lp-cashflow .seg{display:inline-flex;background:#E7E5E0;border-radius:999px;padding:3px}
+#p-lp-cashflow .seg button{height:34px;padding:0 16px;border-radius:999px;font-size:13px;color:var(--ink-2);transition:background .3s var(--ease),color .3s,box-shadow .3s}
+#p-lp-cashflow .seg button:hover{color:var(--ink)}
+#p-lp-cashflow .seg button[aria-selected="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+#p-lp-cashflow .rw-ctl .dot-btn{width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:transform .3s var(--ease),background .2s,color .2s}
+#p-lp-cashflow .rw-ctl .dot-btn:hover{background:#000;color:#fff;transform:rotate(8deg)}
+#p-lp-cashflow .rw-ctl .go{background:var(--steel-btn);color:#fff}
+#p-lp-cashflow .rw-mid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-top:22px;align-items:flex-end}
+#p-lp-cashflow .rw-mid p{font-size:13px;line-height:1.5;color:var(--ink-3);max-width:60ch}
+#p-lp-cashflow .rw-fig{display:flex;gap:36px}
+#p-lp-cashflow .rw-fig small{display:block;font-size:12px;color:var(--ink-3)}
+#p-lp-cashflow .rw-fig b{font-weight:400;font-size:clamp(20px,2vw,28px);letter-spacing:-.03em}
+#p-lp-cashflow .rw-chart{position:relative;margin-top:clamp(30px,4vw,56px);cursor:crosshair;touch-action:pan-y}
+#p-lp-cashflow .rw-chart svg{width:100%;height:170px;overflow:visible}
+#p-lp-cashflow .rw-chart rect{transition:y .9s var(--ease),height .9s var(--ease),opacity .4s}
+#p-lp-cashflow .mk{position:absolute;top:0;transform:translateX(-1px);padding-left:8px;border-left:0;font-size:11px;color:var(--ink-3);pointer-events:none;transition:opacity .4s,transform .4s var(--ease)}
+#p-lp-cashflow .mk b{display:block;font-weight:400;font-size:clamp(14px,1.3vw,18px);color:var(--ink);letter-spacing:-.02em}
+#p-lp-cashflow .cur{position:absolute;top:36px;bottom:0;width:1px;background:#000;opacity:0;pointer-events:none;transition:opacity .2s}
+#p-lp-cashflow .tip{position:absolute;top:0;background:#000;color:#fff;font-size:12px;padding:6px 10px;border-radius:8px;white-space:nowrap;pointer-events:none;opacity:0;transform:translate(-50%,-110%);transition:opacity .2s}
+#p-lp-cashflow .rw-chart.hov .cur,#p-lp-cashflow .rw-chart.hov .tip{opacity:1}
+#p-lp-cashflow .share{display:flex;height:6px;border-radius:6px;overflow:hidden;margin-top:26px;gap:3px}
+#p-lp-cashflow .share i{display:block;border-radius:6px;transition:opacity .4s,flex .8s var(--ease)}
+#p-lp-cashflow .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+#p-lp-cashflow .cat{text-align:left;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.55);box-shadow:inset 0 0 0 1px transparent;transition:background .3s,box-shadow .3s,transform .4s var(--ease)}
+#p-lp-cashflow .cat:hover{background:#fff;transform:translateY(-2px)}
+#p-lp-cashflow .cat[aria-pressed="true"]{background:#fff;box-shadow:inset 0 0 0 1.5px #6CB0F7}
+#p-lp-cashflow .cat small{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-3)}
+#p-lp-cashflow .cat small i{width:8px;height:8px;border-radius:50%}
+#p-lp-cashflow .cat b{display:block;font-weight:400;font-size:clamp(18px,1.8vw,26px);letter-spacing:-.03em;margin-top:2px}
+@media(max-width:700px){#p-lp-cashflow .cats{grid-template-columns:1fr}#p-lp-cashflow .rw-fig{gap:24px}}
+
+/* ---------- activity ---------- */
+#p-lp-cashflow .act{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,6vw,100px);align-items:start}
+#p-lp-cashflow .h2x{font-size:clamp(30px,4vw,60px);line-height:1.05;letter-spacing:-.03em;font-weight:400}
+#p-lp-cashflow .ftabs{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:34px;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+#p-lp-cashflow .ftabs button{padding:8px 0;color:var(--ink-3);position:relative;transition:color .25s}
+#p-lp-cashflow .ftabs button:hover{color:var(--ink)}
+#p-lp-cashflow .ftabs button[aria-selected="true"]{color:var(--ink)}
+#p-lp-cashflow .ftabs button::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1.5px;background:#4FA3F2;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+#p-lp-cashflow .ftabs button[aria-selected="true"]::after{transform:scaleX(1)}
+#p-lp-cashflow .stream-st{display:inline-flex;align-items:center;gap:8px;margin-top:30px;font-size:13px;color:var(--ink-2)}
+#p-lp-cashflow .rep{display:inline-flex;align-items:center;gap:8px;margin-left:10px;height:30px;padding:0 12px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);background:#fff;font-size:12px;transition:background .2s,color .2s}
+#p-lp-cashflow .rep:hover{background:#000;color:#fff}
+#p-lp-cashflow .feed{background:var(--sand);border-radius:var(--r-card);padding:clamp(14px,2vw,24px);min-height:520px}
+#p-lp-cashflow .grp{margin-bottom:8px}
+#p-lp-cashflow .grp h3{font-size:clamp(17px,1.4vw,20px);font-weight:400;padding:18px 8px 12px;border-bottom:1px solid #DDDAD2;margin-bottom:6px;letter-spacing:-.02em}
+#p-lp-cashflow .grp h3 span{color:var(--ink-3)}
+#p-lp-cashflow .it{display:flex;align-items:center;gap:14px;padding:10px 8px;border-radius:14px;opacity:0;transform:translateY(16px) scale(.985);transition:opacity .7s var(--ease),transform .7s var(--ease),background .25s}
+#p-lp-cashflow .it.on{opacity:1;transform:none}
+#p-lp-cashflow .it.off{display:none}
+#p-lp-cashflow .it:hover{background:rgba(255,255,255,.7)}
+#p-lp-cashflow .ic{width:40px;height:40px;border-radius:10px;background:#fff;display:grid;place-items:center;flex:none;color:var(--ink)}
+#p-lp-cashflow .ic .sw{width:26px;height:14px;border-radius:9px;background:#BAD5F3;position:relative}
+#p-lp-cashflow .ic .sw::after{content:"";position:absolute;right:2px;top:2px;width:10px;height:10px;border-radius:50%;background:#6E8FB3}
+#p-lp-cashflow .it .t{flex:1;min-width:0}
+#p-lp-cashflow .it .t small{display:block;font-size:11px;color:var(--ink-3)}
+#p-lp-cashflow .it .t span{font-size:14px}
+#p-lp-cashflow .it .a{font-size:14px;font-variant-numeric:tabular-nums;white-space:nowrap}
+#p-lp-cashflow .empty{display:none;padding:40px 8px;color:var(--ink-3);font-size:14px}
+@media(max-width:900px){#p-lp-cashflow .act{grid-template-columns:1fr}}
+
+/* ---------- visibility ---------- */
+#p-lp-cashflow .vis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,4vw,64px);align-items:center}
+#p-lp-cashflow .ice{background:#E8EEF8;border-radius:var(--r-card);position:relative;overflow:hidden;padding:clamp(22px,3vw,44px)}
+#p-lp-cashflow .ice .orb-art{position:absolute;right:-6%;top:-12%;width:70%;opacity:.55;pointer-events:none}
+#p-lp-cashflow .ice .orb-art ellipse{transform-box:fill-box;transform-origin:center;animation:lp-cashflow-spin 60s linear infinite}
+#p-lp-cashflow .donut-card{background:#fff;border-radius:22px;padding:22px;position:relative;max-width:520px;margin:0 auto}
+#p-lp-cashflow .donut-card header{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink-3)}
+#p-lp-cashflow .donut{position:relative;width:min(300px,100%);margin:18px auto 8px;aspect-ratio:1}
+#p-lp-cashflow .donut svg{width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+#p-lp-cashflow .donut circle.seg-c{fill:none;stroke-width:22;stroke-linecap:round;cursor:pointer;transition:stroke-width .35s var(--ease),opacity .3s;stroke-dasharray:0 1000}
+#p-lp-cashflow .donut svg.go circle.seg-c{animation:lp-cashflow-draw 1.4s var(--ease) forwards;animation-delay:var(--dl)}
+@keyframes lp-cashflow-draw{to{stroke-dasharray:var(--len) 1000}}
+#p-lp-cashflow .donut.hv circle.seg-c{opacity:.35}
+#p-lp-cashflow .donut.hv circle.seg-c.act{opacity:1;stroke-width:28}
+#p-lp-cashflow .donut .mid{position:absolute;inset:0;display:grid;place-content:center;text-align:center;pointer-events:none}
+#p-lp-cashflow .donut .mid b{font-weight:400;font-size:clamp(28px,3vw,38px);letter-spacing:-.04em;line-height:1}
+#p-lp-cashflow .donut .mid small{font-size:12px;color:var(--ink-3);margin-top:4px;display:block}
+#p-lp-cashflow .legend{display:flex;justify-content:center;gap:8px 18px;flex-wrap:wrap;font-size:12px}
+#p-lp-cashflow .legend button{display:inline-flex;align-items:center;gap:6px;color:var(--ink-2);padding:4px 8px;border-radius:999px;transition:background .2s}
+#p-lp-cashflow .legend button:hover,#p-lp-cashflow .legend button.act{background:var(--subtle)}
+#p-lp-cashflow .legend i{width:8px;height:8px;border-radius:50%}
+#p-lp-cashflow .pts{margin-top:34px;display:grid;gap:0}
+#p-lp-cashflow .pts li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid var(--line);font-size:15px;transition:padding .4s var(--ease)}
+#p-lp-cashflow .pts li:hover{padding-left:10px}
+#p-lp-cashflow .pts li span:last-child{color:var(--ink-3)}
+@media(max-width:900px){#p-lp-cashflow .vis{grid-template-columns:1fr}}
+
+/* ---------- impact ---------- */
+#p-lp-cashflow .imp h2{font-size:clamp(28px,4.3vw,66px);line-height:1.12;letter-spacing:-.03em;font-weight:400;max-width:24ch}
+#p-lp-cashflow .imp h2 em{font-style:normal;color:var(--accent)}
+#p-lp-cashflow .curve{position:relative;margin-top:clamp(28px,4vw,56px)}
+#p-lp-cashflow .curve svg{width:100%;height:auto;overflow:visible;display:block}
+#p-lp-cashflow .curve .stem{stroke-linecap:round;transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0)}
+#p-lp-cashflow .curve.go .stem{animation:barUp 1s var(--ease) forwards;animation-delay:calc(var(--i)*14ms)}
+#p-lp-cashflow .curve .line{stroke-dasharray:var(--L);stroke-dashoffset:var(--L)}
+#p-lp-cashflow .curve.go .line{animation:lp-cashflow-line 2.4s var(--ease) .2s forwards}
+@keyframes lp-cashflow-line{to{stroke-dashoffset:0}}
+#p-lp-cashflow .curve .dotc{opacity:0;transition:opacity .6s 1.6s}
+#p-lp-cashflow .curve.go .dotc{opacity:1}
+#p-lp-cashflow .curve .pin{transition:transform .5s var(--ease)}
+#p-lp-cashflow .curve .pill{transition:opacity .4s}
+#p-lp-cashflow .stages{display:flex;justify-content:space-between;margin-top:4px}
+#p-lp-cashflow .stages button{font-size:clamp(11px,1.1vw,15px);color:var(--ink-3);padding:8px 4px;position:relative;transition:color .25s}
+#p-lp-cashflow .stages button:hover,#p-lp-cashflow .stages button[aria-pressed="true"]{color:var(--ink)}
+#p-lp-cashflow .stages button[aria-pressed="true"]::after{content:"";position:absolute;left:4px;right:4px;bottom:2px;height:1.5px;background:#6CB0F7}
+#p-lp-cashflow .readout{display:flex;align-items:center;gap:14px;margin-top:10px;font-size:14px;color:var(--ink-2);min-height:30px}
+@media(max-width:640px){#p-lp-cashflow .stages button:nth-child(even){display:none}}
+
+/* ---------- metrics ---------- */
+#p-lp-cashflow .mt-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+#p-lp-cashflow .fl{display:flex;gap:6px}
+#p-lp-cashflow .fl button{height:34px;padding:0 16px;border-radius:999px;font-size:13px;box-shadow:inset 0 0 0 1px var(--line);background:#fff;transition:background .25s,color .25s}
+#p-lp-cashflow .fl button:hover{background:var(--subtle)}
+#p-lp-cashflow .fl button[aria-pressed="true"]{background:#000;color:#fff;box-shadow:none}
+#p-lp-cashflow .tbl{display:grid;gap:10px}
+#p-lp-cashflow .tr{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr 1fr;align-items:center;gap:16px;padding:20px 26px;border-radius:18px;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.03),0 0 0 1px var(--line-2);transition:transform .5s var(--ease),box-shadow .4s,opacity .5s}
+#p-lp-cashflow .tr:not(.th):hover{transform:translateY(-3px);box-shadow:0 18px 40px -22px rgba(40,70,110,.35),0 0 0 1px var(--line)}
+#p-lp-cashflow .tr.th{background:var(--subtle);box-shadow:none;padding:12px 26px;font-size:13px;color:var(--ink-3)}
+#p-lp-cashflow .tr.th button{display:inline-flex;gap:6px;align-items:center;color:var(--ink-2)}
+#p-lp-cashflow .tr.th button:hover{color:var(--ink)}
+#p-lp-cashflow .tr .m b{display:block;font-weight:400;font-size:17px;letter-spacing:-.02em}
+#p-lp-cashflow .tr .m small{font-size:13px;color:var(--ink-3)}
+#p-lp-cashflow .st{display:inline-flex;align-items:center;gap:8px;font-size:13px}
+#p-lp-cashflow .st i{width:12px;height:12px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px #fff,0 0 0 4.5px var(--teal);display:block}
+#p-lp-cashflow .val{font-size:17px;letter-spacing:-.02em}
+#p-lp-cashflow .rng{display:flex;align-items:center;gap:10px;font-size:10px;color:var(--ink-3)}
+#p-lp-cashflow .rng svg{width:100px;height:26px;flex:none}
+#p-lp-cashflow .rng .dt{transition:cx .9s var(--ease)}
+#p-lp-cashflow .upl{font-size:13px;color:var(--ink-2);text-align:right}
+#p-lp-cashflow .tr.hide{display:none}
+@media(max-width:900px){#p-lp-cashflow .tr{grid-template-columns:1fr 1fr;padding:18px}#p-lp-cashflow .tr.th{display:none}#p-lp-cashflow .upl{text-align:left}}
+
+/* ---------- CTA ---------- */
+#p-lp-cashflow .cta{position:relative;border-radius:var(--r-card);overflow:hidden;min-height:clamp(380px,40vw,520px);padding:clamp(26px,4vw,56px);color:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:30px;
+  background:radial-gradient(60% 70% at 85% 25%,#E6F3EA 0%,transparent 60%),radial-gradient(50% 60% at 60% 70%,#7BC4A8 0%,transparent 65%),radial-gradient(70% 90% at 5% 10%,#9AA3A3 0%,transparent 60%),linear-gradient(135deg,#B7C0BF,#CFE9DE 60%,#F0F6F1)}
+#p-lp-cashflow .cta svg.wave{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.55}
+#p-lp-cashflow .cta svg.wave path{animation:lp-cashflow-drift 14s ease-in-out infinite alternate}
+@keyframes lp-cashflow-drift{from{transform:translateX(-2%)}to{transform:translateX(2%)}}
+#p-lp-cashflow .cta h2{font-size:clamp(34px,5vw,72px);line-height:1.04;letter-spacing:-.035em;font-weight:400;max-width:15ch;position:relative;color:#fff}
+#p-lp-cashflow .cta-b{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;position:relative}
+#p-lp-cashflow .cta-b p{max-width:46ch;font-size:15px;color:#0F2A2A}
+#p-lp-cashflow .cta-b .btn{height:40px}
+#p-lp-cashflow .cta-sp{padding-block:clamp(40px,5vw,72px) clamp(56px,7vw,96px)}
+/* a11y (kept last so it wins): small labels on sand/subtle surfaces need --ink-2 to reach 4.5:1 (--ink-3 is 4.2:1 there) */
+#p-lp-cashflow .rw .eb,#p-lp-cashflow .rw-mid p,#p-lp-cashflow .rw-fig small,#p-lp-cashflow .mk,#p-lp-cashflow .cat small,#p-lp-cashflow .feed .it .t small,#p-lp-cashflow .grp h3 span,#p-lp-cashflow .tr.th{color:var(--ink-2)}
+#p-lp-cashflow .chip.up{color:#0B7A65}
+</style>
+
+<!-- ============ 1 · HERO ============ -->
+<header class="hero sky">
+  <svg class="arcs" viewBox="0 0 1600 900" aria-hidden="true" fill="none" stroke="currentColor" stroke-width=".9">
+    <g><circle cx="800" cy="900" r="360" stroke-dasharray="620 1640"/><circle cx="800" cy="900" r="520" stroke-dasharray="300 2967"/><circle cx="800" cy="900" r="700" stroke-dasharray="900 3500"/></g>
+    <g class="r"><circle cx="800" cy="900" r="440" stroke-dasharray="1100 1665"/><circle cx="800" cy="900" r="620" stroke-dasharray="420 3475"/><circle cx="800" cy="900" r="860" stroke-dasharray="1500 3900"/></g>
+  </svg>
+  <div data-lp-nav="light" data-current="lp-cashflow"></div>
+  <div class="w hero-in">
+    <p class="eb" data-reveal="fade"><span class="live-dot"></span>Product · Cash Flow</p>
+    <h1 data-reveal>Monitor your cash movement across all accounts</h1>
+    <div class="bal" data-reveal data-delay="150">
+      <div><small>Cash overview</small><span class="big num" data-count="92345.67" data-decimals="2" data-prefix="$">$92,345.67</span></div>
+      <span class="chip up" style="height:26px;font-size:13px;padding:0 10px">▲ +2.4%</span>
+    </div>
+    <div class="cta-row" data-reveal data-delay="250">
+      <span class="try"><a class="try-pill" href="/lp-cards" style="background:#fff">Try Runo</a><a class="try-dot" href="/lp-cards" aria-label="Try Runo"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-arrow-ne"/></svg></a></span>
+      <a class="btn btn-ghost" style="color:#0B1F36;box-shadow:inset 0 0 0 1px rgba(11,31,54,.28)" href="/lp-pricing">Talk to sales</a>
+    </div>
+  </div>
+  <div class="dash-wrap">
+    <div class="dash" id="lp-cashflow-dash" role="group" aria-label="Runo Finance Cash Flow dashboard preview">
+      <div class="dtop">
+        <div class="dbrand"><svg class="mark" viewBox="0 0 362 360" aria-hidden="true"><use href="#runo-mark"/></svg>Runo Finance</div>
+        <div class="dtabs"><span aria-current="page">Cash Flow</span><span>Payments</span><span>Operations</span><span>Control</span></div>
+        <span class="dbtn"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-menu"/></svg>Dashboard</span>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><small>Cash balance</small><span class="v num"><span data-count="48320" data-prefix="$">$48,320</span><span class="chip">+3.2%</span></span></div>
+        <div class="kpi"><small>Net flow</small><span class="v num"><span data-count="6480" data-prefix="$">$6,480</span><span class="chip">-8%</span></span></div>
+        <div class="kpi"><small>Monthly burn</small><span class="v num"><span data-count="18900" data-prefix="$">$18,900</span><span class="chip">+4%</span></span></div>
+      </div>
+      <div class="blocks">
+        <div class="blk"><small>Contractor payouts</small><span class="v num">$8,920</span><div class="ch" data-live="0"></div></div>
+        <div class="blk"><small>Vendor invoices</small><span class="v num">$6,740</span><div class="ch" data-live="1"></div></div>
+        <div class="blk"><small>Software &amp; tools</small><span class="v num">$2,560</span><div class="ch" data-live="2"></div></div>
+      </div>
+      <div class="dtabs2"><span>All</span><span>Cards</span><span>Bank transfer</span><span>SEPA</span><span>SWIFT</span><span>Subscriptions</span><span class="upd"><span class="live-dot"></span><span id="lp-cashflow-upd">Live</span></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 2 · RUNWAY ============ -->
+<section class="sec" aria-labelledby="lp-cashflow-rw-h">
+  <div class="w">
+    <div class="rw" data-reveal>
+      <div class="rw-top">
+        <div><p class="eb" id="lp-cashflow-rw-h">Runway Projection</p><div class="rw-big num"><span data-count="4.6" data-decimals="1" data-dur="1600">4.6</span> months</div></div>
+        <div class="rw-ctl">
+          <div class="seg" role="tablist" aria-label="Runway view" id="lp-cashflow-seg"><button role="tab" aria-selected="true" tabindex="0" data-m="f">Forecast</button><button role="tab" aria-selected="false" tabindex="-1" data-m="a">Actual</button></div>
+          <button class="dot-btn" type="button" aria-label="Show layers" id="lp-cashflow-layers"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-layers"/></svg></button>
+          <button class="dot-btn" type="button" aria-label="Download projection" id="lp-cashflow-dl"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-download"/></svg></button>
+          <a class="dot-btn go" href="/lp-copilot" aria-label="Open with AI Copilot"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-arrow-ne"/></svg></a>
+        </div>
+      </div>
+      <div class="rw-mid">
+        <p>Runway projection reflects how many months your business can operate with the current cash balance. It is calculated using your average burn rate, committed costs, and upcoming scheduled payments over the next period.</p>
+        <div class="rw-fig"><div><small>Current burn</small><b class="num">$18,900</b></div><div><small>Committed</small><b class="num">$6,240</b></div></div>
+      </div>
+      <div class="rw-chart" id="lp-cashflow-rwc" role="img" aria-label="Runway projection hairline chart split into Core team $10,420, Vendors $5,380 and Tools and infra $3,100">
+        <div class="tip" id="lp-cashflow-tip"></div><div class="cur" id="lp-cashflow-cur"></div>
+        <div id="lp-cashflow-mks" style="position:relative;height:40px"></div>
+        <svg id="lp-cashflow-rwsvg" viewBox="0 0 1000 170" preserveAspectRatio="none" aria-hidden="true"></svg>
+      </div>
+      <div class="share" id="lp-cashflow-share" aria-hidden="true"></div>
+      <div class="cats" id="lp-cashflow-cats"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 · ACTIVITY ============ -->
+<section class="sec" style="padding-top:0" aria-labelledby="lp-cashflow-act-h">
+  <div class="w act">
+    <div data-reveal="left">
+      <p class="eb">Cash Flow</p>
+      <h2 class="h2x" id="lp-cashflow-act-h" style="margin-top:14px">Recent activity</h2>
+      <p class="lede" style="margin-top:18px">Runo helps you manage payments, monitor cash flow, and control financial operations in real time.</p>
+      <div class="ftabs" role="tablist" aria-label="Filter activity" id="lp-cashflow-ftabs"></div>
+      <p class="stream-st"><span class="live-dot"></span><span id="lp-cashflow-sst">Streaming</span><button class="rep" type="button" id="lp-cashflow-rep"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-swap"/></svg>Replay</button></p>
+    </div>
+    <div class="feed" id="lp-cashflow-feed" aria-live="polite" aria-label="Recent activity feed"></div>
+  </div>
+</section>
+
+<!-- ============ 4 · VISIBILITY ============ -->
+<section class="sec" style="padding-top:0" aria-labelledby="lp-cashflow-vis-h">
+  <div class="w vis">
+    <div>
+      <p class="eb blue" style="color:var(--accent-ink)">Everything in one place</p>
+      <h2 class="h2x" id="lp-cashflow-vis-h" style="margin-top:14px" data-reveal>Full financial visibility</h2>
+      <p class="lede" style="margin-top:18px;font-size:clamp(17px,1.4vw,21px)" data-reveal data-delay="120">Know exactly where your money is and where it's going. Stay ahead of risk.</p>
+      <ul class="pts" data-reveal data-delay="200">
+        <li><span>Individual account ****1116</span><span>$92,345.67</span></li>
+        <li><span>Net flow</span><span>$6,480</span></li>
+        <li><span>Monthly burn</span><span>$18,900</span></li>
+      </ul>
+    </div>
+    <div class="ice" data-reveal="scale">
+      <svg class="orb-art" viewBox="0 0 200 200" fill="none" stroke="#8AA3C6" stroke-width=".7" aria-hidden="true"><ellipse cx="100" cy="100" rx="38" ry="88"/><ellipse cx="100" cy="100" rx="66" ry="88"/><ellipse cx="100" cy="100" rx="88" ry="38"/><circle cx="100" cy="100" r="88"/><circle cx="170" cy="86" r="4" fill="#8AA3C6"/></svg>
+      <div class="donut-card">
+        <header><span>Spend controllability</span><span class="chip">Total spend</span></header>
+        <div class="donut" id="lp-cashflow-donut"><svg id="lp-cashflow-dsvg" viewBox="0 0 120 120" role="img" aria-label="Total spend $52,860: Card 50%, Bank transfer 30%, Subscriptions 20%"></svg>
+          <div class="mid"><b class="num" id="lp-cashflow-dm">$52,860</b><small id="lp-cashflow-ds">Total spend</small></div></div>
+        <div class="legend" id="lp-cashflow-legend"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 · IMPACT ============ -->
+<section class="sec imp" style="padding-top:0" aria-labelledby="lp-cashflow-imp-h">
+  <div class="w">
+    <p class="eb">Impact overview</p>
+    <h2 id="lp-cashflow-imp-h" style="margin-top:16px" data-reveal>Reduce <em>operational friction,</em> unlock <em>financial clarity</em> across payments, and business accounts.</h2>
+    <div class="curve" id="lp-cashflow-curve">
+      <svg id="lp-cashflow-csvg" viewBox="0 0 1700 640" role="img" aria-label="Operational friction falls by 60% from Intake to Scale"></svg>
+      <div class="stages" id="lp-cashflow-stages" role="group" aria-label="Stages"></div>
+      <div class="readout" aria-live="polite"><span class="chip" id="lp-cashflow-rs" style="height:26px;font-size:13px">Intake</span><span id="lp-cashflow-rt">Operational friction</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 · METRICS ============ -->
+<section class="sec" style="padding-top:0" aria-labelledby="lp-cashflow-mt-h">
+  <div class="w">
+    <div class="mt-head">
+      <div data-reveal><p class="eb">Control</p><h2 class="h2x" id="lp-cashflow-mt-h" style="margin-top:12px">Your control overview</h2></div>
+      <div class="fl" id="lp-cashflow-fl" role="group" aria-label="Filter by status"></div>
+    </div>
+    <div class="tbl" id="lp-cashflow-tbl">
+      <div class="tr th" aria-hidden="false"><button type="button" id="lp-cashflow-sort" aria-label="Sort by metric">Metric <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-caret"/></svg></button><span>Status</span><span>Value</span><span aria-hidden="true"></span><span style="text-align:right">Last updated</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 · CTA ============ -->
+<section class="cta-sp">
+  <div class="w">
+    <div class="cta" data-reveal="scale">
+      <svg class="wave" viewBox="0 0 1200 500" preserveAspectRatio="none" aria-hidden="true" fill="none" stroke="#fff" stroke-width=".6" id="lp-cashflow-wave"></svg>
+      <h2>Take control of your financial operations with Runo</h2>
+      <div class="cta-b">
+        <p>Runo gives you full visibility and control over your cash flow, payments, and operations — from day one. No complexity, no delays.</p>
+        <div style="display:flex;gap:10px"><a class="btn btn-pill" href="/lp-cards">Get started <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-arrow-right"/></svg></a><a class="btn btn-pill" href="/lp-pricing">Talk to sales</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div data-lp-footer></div>
+</section>

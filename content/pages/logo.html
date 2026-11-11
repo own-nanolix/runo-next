@@ -1,0 +1,191 @@
+<section class="page is-active" id="p-logo" aria-label="Logo">
+<style>
+#p-logo .lg-head{padding-top:clamp(28px,4vw,56px)}
+#p-logo .lg-head .eyebrow{margin-bottom:14px}
+#p-logo .lg-hero{position:relative;display:grid;place-items:center;min-height:clamp(380px,50vw,780px);margin-top:clamp(20px,3vw,40px);background:#fff}
+#p-logo .lg-big{width:clamp(160px,27vw,420px);height:auto;overflow:visible;color:#000;fill:currentColor}
+#p-logo .lg-big.play .w1{animation:logo-in1 1.1s var(--ease) .15s both}
+#p-logo .lg-big.play .w2{animation:logo-in2 1.1s var(--ease) .55s both}
+#p-logo .lg-big.play .w3{animation:logo-in3 1.1s var(--ease) .95s both}
+@keyframes logo-in1{from{opacity:0;transform:translateX(-150px)}}
+@keyframes logo-in2{from{opacity:0;transform:translateX(170px)}}
+@keyframes logo-in3{from{opacity:0;transform:translateY(130px)}}
+#p-logo .lg-replay{position:absolute;right:clamp(16px,2.4vw,32px);bottom:clamp(16px,2.4vw,32px);gap:10px}
+#p-logo .lg-replay svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .6s var(--ease)}
+#p-logo .lg-replay:hover svg{transform:rotate(-180deg)}
+#p-logo .lg-hero-cap{position:absolute;left:clamp(16px,2.4vw,32px);bottom:clamp(16px,2.4vw,32px)}
+
+#p-logo .lg-sec-h{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:clamp(22px,3vw,40px)}
+#p-logo .lg-seg{display:inline-flex;padding:4px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);gap:2px}
+#p-logo .lg-seg button{height:36px;padding:0 16px;border-radius:999px;font-size:14px;color:var(--ink-2);transition:background .25s,color .25s,transform .25s var(--ease)}
+#p-logo .lg-seg button:hover{background:var(--subtle)}
+#p-logo .lg-seg button:active{transform:scale(.96)}
+#p-logo .lg-seg button[aria-pressed="true"]{background:#000;color:#fff}
+
+#p-logo .lg-cons{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(12px,1.4vw,24px)}
+#p-logo .lg-cons-c{padding:clamp(12px,2vw,28px);display:grid;place-items:center;background:#fff}
+#p-logo .lg-cons-c svg{width:min(100%,640px);height:auto;max-width:none}
+#p-logo .g-grid{opacity:0;transition:opacity .55s var(--ease)}
+#p-logo [data-mode="grid"] .g-grid{opacity:1}
+#p-logo .g-wing{fill:#000;fill-opacity:1;stroke:#000;stroke-width:2;stroke-opacity:0;transition:fill-opacity .55s var(--ease),stroke-opacity .55s var(--ease)}
+#p-logo [data-mode="grid"] .g-wing{fill-opacity:.09;stroke-opacity:1}
+#p-logo .lg-facts{padding:clamp(22px,2.6vw,36px);display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+#p-logo .lg-facts dl{margin:0;display:grid}
+#p-logo .lg-facts dl div{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-top:1px solid var(--line);font-size:15px}
+#p-logo .lg-facts dt{color:var(--ink-2)}#p-logo .lg-facts dd{margin:0;font-variant-numeric:tabular-nums}
+@media(max-width:900px){#p-logo .lg-cons{grid-template-columns:1fr}}
+
+#p-logo .lg-lk{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.4vw,24px)}
+@media(max-width:1100px){#p-logo .lg-lk{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){#p-logo .lg-lk{grid-template-columns:1fr}}
+#p-logo .lg-tile{display:flex;flex-direction:column;gap:12px}
+#p-logo .lg-tile figcaption{font-size:13px;color:var(--ink-3)}
+#p-logo .lg-box{position:relative;aspect-ratio:1/1;border-radius:var(--r-card);overflow:hidden;display:grid;place-items:center;transition:transform .7s var(--ease),box-shadow .7s var(--ease)}
+#p-logo .lg-tile:hover .lg-box{transform:translateY(-4px);box-shadow:0 26px 40px -30px rgba(40,70,110,.5)}
+#p-logo .lg-box .mark{width:38%;height:auto}
+#p-logo .lg-hz{display:flex;align-items:center;gap:12px;color:#fff;font-size:clamp(22px,2.2vw,32px);letter-spacing:-.025em}
+#p-logo .lg-hz .mark{width:1.15em;height:1.15em}
+#p-logo .lg-word{position:absolute;left:8%;bottom:10%;color:#fff;font-size:clamp(48px,5.4vw,84px);letter-spacing:-.035em;line-height:1}
+#p-logo .lg-foot-bg{background:linear-gradient(180deg,#F1EFEA 0%,#DCE4F0 38%,#A9C4EC 100%)}
+#p-logo .lg-box .appicon{width:48%;box-shadow:0 22px 40px -20px rgba(30,45,70,.45)}
+
+#p-logo .lg-cw{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(12px,1.4vw,24px);align-items:stretch}
+#p-logo .lg-cw-stage{position:relative;border-radius:var(--r-card);min-height:clamp(300px,36vw,560px);display:grid;place-items:center;overflow:hidden;color:#000;transition:color .4s,background-color .4s}
+#p-logo .lg-cw-stage .mark{width:clamp(110px,16vw,240px);height:auto;transition:transform .8s var(--ease)}
+#p-logo .lg-cw-stage:hover .mark{transform:scale(1.04)}
+#p-logo .lg-read{position:absolute;left:clamp(12px,1.6vw,22px);bottom:clamp(12px,1.6vw,22px);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#p-logo .lg-pill{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);font-size:13px;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+#p-logo button.lg-pill{transition:background .2s,transform .25s var(--ease)}
+#p-logo button.lg-pill:hover{background:#fff;transform:translateY(-1px)}#p-logo button.lg-pill:active{transform:scale(.97)}
+#p-logo .lg-sw{display:grid;grid-template-columns:1fr;gap:10px;align-content:start}
+#p-logo .lg-sw button{display:flex;align-items:center;gap:12px;padding:6px 16px 6px 6px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font-size:14px;text-align:left;transition:box-shadow .25s,transform .25s var(--ease)}
+#p-logo .lg-sw button:hover{box-shadow:inset 0 0 0 1px var(--steel)}
+#p-logo .lg-sw button:active{transform:scale(.98)}
+#p-logo .lg-sw button[aria-pressed="true"]{box-shadow:inset 0 0 0 2px #000}
+#p-logo .lg-sw i{width:40px;height:40px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1);flex:none}
+@media(max-width:900px){#p-logo .lg-cw{grid-template-columns:1fr}#p-logo .lg-sw{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+#p-logo .lg-scale{display:flex;align-items:flex-end;gap:clamp(18px,3.4vw,56px);flex-wrap:wrap;padding:clamp(24px,3.4vw,52px)}
+#p-logo .lg-sc{display:flex;flex-direction:column;align-items:flex-start;gap:12px;font-size:13px;color:var(--ink-3)}
+#p-logo .lg-sc .appicon{box-shadow:0 0 0 1px var(--line);transition:transform .5s var(--ease)}
+#p-logo .lg-sc:hover .appicon{transform:translateY(-4px)}
+#p-logo .lg-ctx{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.4vw,24px);margin-top:clamp(12px,1.4vw,24px)}
+@media(max-width:1100px){#p-logo .lg-ctx{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){#p-logo .lg-ctx{grid-template-columns:1fr}}
+#p-logo .lg-box.short{aspect-ratio:4/3}
+#p-logo .lg-hdr{display:flex;align-items:center;justify-content:space-between;gap:14px;width:86%;color:var(--ink);font-size:14px}
+#p-logo .lg-hdr span{display:inline-flex;align-items:center;gap:8px}
+#p-logo .lg-hdr .mark{width:20px;height:20px}
+#p-logo .lg-hdr b{font-weight:400;background:var(--steel-btn);color:#fff;border-radius:4px;padding:6px 12px;font-size:12px}
+#p-logo .lg-disc{width:46%;aspect-ratio:1;border-radius:50%;background:#C8DDF7;display:grid;place-items:center;box-shadow:0 20px 40px -22px rgba(40,90,160,.6)}
+#p-logo .lg-disc .mark{width:44%;color:#fff}
+#p-logo .lg-coin{width:82%;height:auto;max-width:none;filter:drop-shadow(0 20px 18px rgba(90,76,52,.3));transition:transform .9s var(--ease)}
+#p-logo .lg-tile:hover .lg-coin{transform:rotate(6deg) scale(1.03)}
+#p-logo .lg-crop{position:relative}
+#p-logo .lg-crop [data-card]{position:absolute;right:0;top:0;width:300%}
+#p-logo .lg-crop svg{width:100%;height:auto;max-width:none}
+
+#p-logo .lg-mo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.4vw,24px)}
+@media(max-width:700px){#p-logo .lg-mo{grid-template-columns:1fr}}
+#p-logo .lg-ld{width:34%;height:auto;overflow:visible;fill:currentColor}
+#p-logo .lg-ld path{animation:logo-ld 2.6s var(--ease-io) infinite;animation-delay:calc(var(--k)*260ms)}
+@keyframes logo-ld{0%{opacity:0;transform:translate(var(--dx,0),var(--dy,0))}28%,62%{opacity:1;transform:none}92%,100%{opacity:0;transform:translate(calc(var(--dx,0)*-.6),calc(var(--dy,0)*-.6))}}
+#p-logo .lg-ld .l1{--dx:-90px}#p-logo .lg-ld .l2{--dx:100px}#p-logo .lg-ld .l3{--dy:80px}
+</style>
+
+<header class="wrap lg-head">
+  <p class="eyebrow" data-reveal>Runo</p>
+  <h1 class="display" data-reveal data-delay="80">Logo</h1>
+  <div class="card lg-hero" data-reveal="scale" data-delay="150">
+    <svg class="lg-big" id="logo-big" viewBox="0 0 362 360" role="img" aria-label="Runo symbol: three wings"></svg>
+    <span class="small lg-hero-cap">Symbol</span>
+    <button type="button" class="btn btn-dark lg-replay" id="logo-replay"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8a5 5 0 1 1-1.6-3.7M13 2.5v3h-3"/></svg>Replay</button>
+  </div>
+</header>
+
+<section class="wrap section" aria-labelledby="logo-cons-h">
+  <div class="lg-sec-h">
+    <h2 class="h1" id="logo-cons-h" data-reveal>Construction</h2>
+    <div class="lg-seg" role="group" aria-label="Construction view" id="logo-modes" data-reveal data-delay="100">
+      <button type="button" data-m="grid" aria-pressed="true">Grid</button>
+      <button type="button" data-m="solid" aria-pressed="false">Solid</button>
+    </div>
+  </div>
+  <div class="lg-cons">
+    <div class="card lg-cons-c" data-reveal><svg id="logo-cons" data-mode="grid" viewBox="-180 -180 722 720" role="img" aria-label="Runo symbol construction grid: three wing shapes"></svg></div>
+    <div class="card sand lg-facts" data-reveal data-delay="120">
+      <p class="h3">Symbol</p>
+      <dl>
+        <div><dt>Wing 1</dt><dd>362 &times; 94</dd></div>
+        <div><dt>Wing 2</dt><dd>362 &times; 96</dd></div>
+        <div><dt>Wing 3</dt><dd>204 &times; 94</dd></div>
+        <div><dt>Corner radius</dt><dd>92</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="logo-lk-h">
+  <div class="lg-sec-h"><h2 class="h1" id="logo-lk-h" data-reveal>Lockups</h2></div>
+  <div class="lg-lk">
+    <figure class="lg-tile" data-reveal><div class="lg-box" style="background:#fff"><svg class="mark" viewBox="0 0 362 360" role="img" aria-label="Runo symbol"><use href="#runo-mark"/></svg></div><figcaption>Symbol</figcaption></figure>
+    <figure class="lg-tile" data-reveal data-delay="80"><div class="lg-box sky" role="img" aria-label="Runo Finance horizontal lockup"><span class="lg-hz" aria-hidden="true"><svg class="mark" viewBox="0 0 362 360"><use href="#runo-mark"/></svg>Runo Finance</span></div><figcaption>Product lockup</figcaption></figure>
+    <figure class="lg-tile" data-reveal data-delay="160"><div class="lg-box lg-foot-bg" role="img" aria-label="Runo. wordmark"><span class="lg-word" aria-hidden="true">Runo.</span></div><figcaption>Wordmark</figcaption></figure>
+    <figure class="lg-tile" data-reveal data-delay="240"><div class="lg-box mist" role="img" aria-label="Runo app icon"><div class="appicon" style="background:#fff"><svg class="mark" viewBox="0 0 362 360" aria-hidden="true"><use href="#runo-mark"/></svg></div></div><figcaption>App icon</figcaption></figure>
+  </div>
+</section>
+
+<section class="wrap section" aria-labelledby="logo-cw-h">
+  <div class="lg-sec-h">
+    <h2 class="h1" id="logo-cw-h" data-reveal>Colourways</h2>
+  </div>
+  <div class="lg-cw">
+    <div class="lg-cw-stage" id="logo-stage" data-reveal="fade">
+      <svg class="mark" viewBox="0 0 362 360" role="img" aria-label="Runo symbol on the selected background"><use href="#runo-mark"/></svg>
+      <div class="lg-read"><span class="lg-pill" id="logo-name"></span><button type="button" class="lg-pill" id="logo-hex"></button></div>
+    </div>
+    <div class="lg-sw" id="logo-sw" role="group" aria-label="Background"></div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="logo-sc-h">
+  <div class="lg-sec-h"><h2 class="h1" id="logo-sc-h" data-reveal>Scale</h2></div>
+  <div class="card lg-scale" data-reveal>
+    <div class="lg-sc"><div class="appicon" style="width:16px"></div>16 px</div>
+    <div class="lg-sc"><div class="appicon" style="width:32px"></div>32 px</div>
+    <div class="lg-sc"><div class="appicon" style="width:64px"></div>64 px</div>
+    <div class="lg-sc"><div class="appicon" style="width:128px"></div>128 px</div>
+    <div class="lg-sc"><div class="appicon" style="width:min(192px,100%)"></div>App icon</div>
+  </div>
+  <h3 class="sr-only">In context</h3>
+  <div class="lg-ctx">
+    <figure class="lg-tile" data-reveal><div class="lg-box short sky"><div class="lg-hdr"><span><svg class="mark" viewBox="0 0 362 360" aria-hidden="true"><use href="#runo-mark"/></svg>Runo Finance</span><b>Dashboard</b></div></div><figcaption>Product header</figcaption></figure>
+    <figure class="lg-tile" data-reveal data-delay="80"><div class="lg-box short" style="background:#E8EEF8"><div class="lg-disc" role="img" aria-label="Runo symbol in a blue disc"><svg class="mark" viewBox="0 0 362 360" aria-hidden="true"><use href="#runo-mark"/></svg></div></div><figcaption>Blue disc</figcaption></figure>
+    <figure class="lg-tile" data-reveal data-delay="160"><div class="lg-box short" style="background:linear-gradient(160deg,#E4DCCB,#CFC4AF)">
+      <svg class="lg-coin" viewBox="0 0 200 200" role="img" aria-label="Runo symbol embossed on a sand-coloured coin">
+        <defs>
+          <radialGradient id="logo-coin-a" cx=".34" cy=".28" r=".95"><stop offset="0" stop-color="#F3EDE1"/><stop offset=".55" stop-color="#DCD2C1"/><stop offset="1" stop-color="#B9AD97"/></radialGradient>
+          <radialGradient id="logo-coin-b" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#E9E0D1"/><stop offset="1" stop-color="#CDC1AB"/></radialGradient>
+        </defs>
+        <g transform="rotate(-16 100 100)">
+          <ellipse cx="100" cy="110" rx="82" ry="76" fill="#A99D87"/>
+          <ellipse cx="100" cy="102" rx="82" ry="76" fill="url(#logo-coin-a)"/>
+          <ellipse cx="100" cy="102" rx="79" ry="73" fill="none" stroke="#B2A68F" stroke-width="3.500" stroke-dasharray="1 1.700" opacity=".7"/>
+          <ellipse cx="100" cy="102" rx="68" ry="62.500" fill="url(#logo-coin-b)" stroke="#F8F3E8" stroke-width="1"/>
+          <svg x="64" y="68" width="76" height="75" viewBox="0 0 362 360" fill="#7F735E" opacity=".55"><use href="#runo-mark"/></svg>
+          <svg x="61.500" y="65.500" width="76" height="75" viewBox="0 0 362 360" fill="#FFFBF1" opacity=".95"><use href="#runo-mark"/></svg>
+          <svg x="62.800" y="66.800" width="76" height="75" viewBox="0 0 362 360" fill="#D6CCB8"><use href="#runo-mark"/></svg>
+        </g>
+      </svg></div><figcaption>Embossed coin</figcaption></figure>
+    <figure class="lg-tile" data-reveal data-delay="240"><div class="lg-box short lg-crop"><div data-card="blue"></div></div><figcaption>Card corner</figcaption></figure>
+  </div>
+</section>
+
+<section class="wrap section" aria-labelledby="logo-mo-h">
+  <div class="lg-sec-h"><h2 class="h1" id="logo-mo-h" data-reveal>Motion</h2></div>
+  <div class="lg-mo">
+    <figure class="lg-tile" data-reveal><div class="lg-box" style="background:var(--blue);color:#000;aspect-ratio:4/3"><svg class="lg-ld" viewBox="0 0 362 360" role="img" aria-label="Loading animation built from the three wings" id="logo-loader"></svg></div><figcaption>Loader &middot; Soft Blue</figcaption></figure>
+    <figure class="lg-tile" data-reveal data-delay="100"><div class="lg-box" style="background:#000;color:#fff;aspect-ratio:4/3"><svg class="lg-ld" viewBox="0 0 362 360" role="img" aria-label="Loading animation on Deep Black" id="logo-loader-dark"></svg></div><figcaption>Loader &middot; Deep Black</figcaption></figure>
+  </div>
+</section>
+</section>
